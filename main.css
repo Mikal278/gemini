@@ -5,11 +5,23 @@ body {
   background-color: #f0f0f0;
 }
 
-header {
-  background-color: #3498db;
+.hero {
+  background-image: url("stocks.png"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Adjust height as needed */
   color: #fff;
-  padding: 20px;
+  padding: 50px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 h1, h2 {
@@ -23,6 +35,23 @@ h1 {
 
 h2 {
   font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+a {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 main {
@@ -44,16 +73,6 @@ main {
 .card h3 {
   font-size: 1.2em;
   margin-bottom: 10px;
-}
-
-.card a {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 footer {
