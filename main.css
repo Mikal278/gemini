@@ -13,7 +13,7 @@ body {
 
 .site-header {
   display: flex; /* Change to flexbox layout */
-  align-items: center; /* Align elements vertically */
+  /*align-items: center; /* Align elements vertically */
   justify-content: space-between; /* Distribute elements horizontally */
   background-color: #f5f5f5;
   padding: 30px 0;
