@@ -5,6 +5,14 @@ body {
   background-color: #f0f0f0;
 }
 
+#homeImage
+{
+  max-width: 50%;
+ 	max-height: 50%;
+  justify-content: left;
+  align-items: left;
+}
+
 .hero {
   background-image: url("stocks.png"); /* Replace with your image path */
   background-size: cover;
