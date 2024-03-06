@@ -11,6 +11,11 @@ body {
  	max-height: 50%;
   justify-content: left;
   align-items: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  height: 25px;
+  width: 25px;
 }
 
 .hero {
