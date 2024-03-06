@@ -5,7 +5,7 @@ body {
   background-color: #f0f0f0;
 }
 
-.hero {
+.main-banner {
   background-image: url("stocks.png"); /* Replace with your image path */
   background-size: cover;
   background-position: center;
@@ -19,16 +19,16 @@ body {
   align-items: center;
 }
 
-.hero a img {
+.main-banner img {
   width: 100px;
   height: 100px;
-  border-radius: 50%; /* Optional: Round corners for a button-like look */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
-  transition: transform 0.2s ease-in-out; /* Optional: Add a smooth hover effect */
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
 }
 
-.hero a img:hover {
-  transform: scale(1.1); /* Optional: Increase size slightly on hover */
+.main-banner img:hover {
+  transform: scale(1.1);
 }
 
 .container {
@@ -66,30 +66,14 @@ a {
   margin-top: 20px;
 }
 
-main {
+.card-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
 }
 
-.card {
+.service-card {
   width: 300px;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-}
-
-.card h3 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-footer {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
+  box-shadow: 0 2px 5px rgba(0, 
