@@ -45,7 +45,7 @@ body {
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
-  width: 25px;
+  width: 200px;
   height: auto; /* Maintain aspect ratio */
 }
 
