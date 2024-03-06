@@ -45,7 +45,7 @@ body {
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
-  width: 100px;
+  width: 25px;
   height: auto; /* Maintain aspect ratio */
 }
 
@@ -80,6 +80,11 @@ body {
 
 .content-wrapper {
   padding: 20px;
+}
+
+.content-wrapper img {
+  width: 25px;
+  height: auto; /* Maintain aspect ratio */
 }
 
 .hero-section {
