@@ -85,3 +85,16 @@ body {
 .hero-section {
   display: flex;
   align-items: center;
+}
+
+.hero-section img{
+  width: 400px;
+  height: auto; /* Maintain aspect ratio */ 
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
