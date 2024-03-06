@@ -5,23 +5,6 @@ body {
   background-color: #f0f0f0;
 }
 
-#homeImage
-{
-  max-width: 50%;
- 	max-height: 50%;
-  justify-content: left;
-  align-items: left;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  height: 25px;
-  width: 25px;
-}
-
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-
 .hero {
   background-image: url("stocks.png"); /* Replace with your image path */
   background-size: cover;
@@ -34,6 +17,18 @@ img:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.hero a img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Optional: Round corners for a button-like look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  transition: transform 0.2s ease-in-out; /* Optional: Add a smooth hover effect */
+}
+
+.hero a img:hover {
+  transform: scale(1.1); /* Optional: Increase size slightly on hover */
 }
 
 .container {
