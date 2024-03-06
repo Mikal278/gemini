@@ -17,6 +17,21 @@ body {
   text-align: center;
 }
 
+.site-header a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: Arial, sans-serif; /* or your preferred font */
+  font-weight: bold;
+  color: #0073C2; /* Investopedia blue */
+  letter-spacing: 1px;
+}
+
+.site-header a img {
+  height: 30px; /* Adjust height as needed */
+  vertical-align: middle; /* Align logo vertically within link */
+  margin-right: 10px; /* Add space between logo and text */
+}
+
 .site-header h1 {
   font-size: 2em;
   margin-bottom: 10px;
@@ -134,16 +149,4 @@ body {
 .call-to-action a {
   background-color: #3498db;
   color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.site-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
+  padding:
