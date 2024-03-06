@@ -82,11 +82,6 @@ body {
   padding: 20px;
 }
 
-.content-wrapper img {
-  width: 25px;
-  height: auto; /* Maintain aspect ratio */
-}
-
 .hero-section {
   display: flex;
   align-items: center;
