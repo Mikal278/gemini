@@ -37,6 +37,7 @@ body {
 }
 
 .site-header img {
+  float: left;
   /* Adjust width as needed */
   width: 100px;
   height: auto; /* Maintain aspect ratio */
