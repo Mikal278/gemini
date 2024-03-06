@@ -92,6 +92,11 @@ body {
   height: auto; /* Maintain aspect ratio */ 
 }
 
+.hero-content {
+  display: flex;
+  align-items: center;
+}
+
 .center {
   display: block;
   margin-left: auto;
