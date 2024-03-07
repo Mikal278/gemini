@@ -26,6 +26,13 @@ body {
   padding: 5px 0;
 }
 
+.site-footer p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666;
+  text-align: center;
+}
+
 .site-header {
   display: flex;
   align-items: center; /* Keeps elements vertically centered */
@@ -71,7 +78,7 @@ body {
   padding: 10px;
   text-align: center;
   white-space: nowrap ;
-  margin-bottom: 2px; /* Add space below the content */
+  /*margin-bottom: 2px; /* Add space below the content */
 }
 
 .main-navigation ul {
