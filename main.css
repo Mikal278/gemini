@@ -63,6 +63,7 @@ body {
   padding: 10px;
   text-align: center;
   white-space: nowrap ;
+  margin-bottom: 2px; /* Add space below the content */
 }
 
 .main-navigation ul {
