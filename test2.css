@@ -55,7 +55,7 @@ body {
   align-items: center; /* Keeps elements vertically centered */
   justify-content: flex-start; /* Aligns elements to the left */
   background-color: #D3D3D3;
-  padding: 5px 0;
+  padding: 5px;
 }
 
 .site-footer p {
