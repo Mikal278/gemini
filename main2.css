@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin-bottom: 10px; /* Add space below the content */
   padding: 0;
   background-color: #fff;
 }
