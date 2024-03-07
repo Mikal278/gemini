@@ -65,6 +65,12 @@ body {
   text-align: center;
 }
 
+.featured-articles {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
