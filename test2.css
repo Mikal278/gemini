@@ -50,6 +50,21 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
+.site-footer {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #D3D3D3;
+  padding: 5px 0;
+}
+
+.site-footer p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666;
+  text-align: center;
+}
+
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
