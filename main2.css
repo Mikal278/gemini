@@ -65,7 +65,7 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-.site-body {
+.featured-articles {
   display: flex;
   align-items: center; /* Keeps elements vertically centered */
   justify-content: flex-start; /* Aligns elements to the left */
