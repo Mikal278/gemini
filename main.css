@@ -30,7 +30,7 @@ body {
   font-size: 2em;
   margin-bottom: 10px;
   color: #333;
-  /* Adjust margin as needed for spacing */
+  white-space: nowrap ;
 }
 
 .site-header a {
