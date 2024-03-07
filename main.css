@@ -62,6 +62,7 @@ body {
   color: #fff;
   padding: 10px;
   text-align: center;
+  white-space: nowrap ;
 }
 
 .main-navigation ul {
