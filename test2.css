@@ -149,6 +149,6 @@ body {
   .main-navigation li {
     display: block; /* Change to block for single line on mobile */
     width: 100%; /* Make each item full width */
-    margin: 5px 0; /* Adjust spacing between items */
+    margin: 10px; /* Adjust spacing between items */
   }
 }
