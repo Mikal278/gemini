@@ -9,7 +9,7 @@ body {
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Vertically align elements */
   /* Adjust spacing as needed */
-  margin-bottom: 10px; /* Add space below the content */
+  margin-bottom: 5px; /* Add space below the content */
 }
 
 .container {
