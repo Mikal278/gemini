@@ -68,7 +68,8 @@ body {
 .featured-articles {
   max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding-bottom: 50px;
+  padding-top: 25px;
 }
 
 .featured-articles img,
