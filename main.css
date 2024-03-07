@@ -82,14 +82,13 @@ body {
 }
 
 .main-navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: flex; /* Enable flexbox for text wrapping */
+  /* Other existing styles */
 }
 
 .main-navigation li {
-  display: inline-block;
-  margin: 0 10px;
+  display: inline-block; /* Maintain block behavior for boxes */
+  /* Other existing styles */
 }
 
 .main-navigation a {
@@ -130,5 +129,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Styles for mobile devices */
+  .main-navigation li a {
+    font-size: 0.9em; /* Adjust font size as needed */
+  }
 }
