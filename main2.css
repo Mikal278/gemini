@@ -65,6 +65,14 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
+.site-body {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #D3D3D3;
+  margin-bottom: 5px; /* Add space below the content */
+}
+
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
