@@ -86,15 +86,17 @@ body {
   text-align: center;
 }
 
+
 .main-navigation ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  /* Other existing styles */
 }
 
 .main-navigation li {
-  display: inline-block;
-  margin: 0 10px;
+  display: inline-block; /* Maintain block behavior for boxes on desktop */
+  margin: 0 10px; /* Adjust spacing as needed */
 }
 
 .main-navigation a {
@@ -135,5 +137,18 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Styles for mobile devices */
+  .main-navigation {
+    text-align: center; /* Center navigation on mobile */
+  }
+
+  .main-navigation ul {
+    display: flex; /* Enable flexbox for wrapping on mobile */
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .main-navigation li {
+    display: block; /* Change to block for single line on mobile */
+    width: 100%; /* Make each item full width */
+    margin: 5px 0; /* Adjust spacing between items */
+  }
 }
