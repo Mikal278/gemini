@@ -5,6 +5,13 @@ body {
   background-color: #fff;
 }
 
+.header-content {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically align elements */
+  /* Adjust spacing as needed */
+  margin-bottom: 10px; /* Add space below the content */
+}
+
 .container {
   max-width: 100%;
   margin: 0 auto;
