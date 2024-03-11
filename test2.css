@@ -87,6 +87,13 @@ body {
   text-align: center;
 }
 
+.article-page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-left: 10px;
+}
 
 .main-navigation ul {
   list-style: none;
