@@ -1,6 +1,6 @@
 @font-face {
   font-family: FalconPunch;
-  src: url('fonts/falconpunch.ttf') format('truetype');
+  src: url('./../fonts/falconpunch.ttf') format('truetype');
 }
 
 body {
