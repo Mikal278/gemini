@@ -52,7 +52,7 @@ body {
 .site-header img {
   float: left;
   /* Adjust width as needed */
-  width: 6 rem;
+  width: 6rem;
   height: auto; /* Maintain aspect ratio */
 }
 
