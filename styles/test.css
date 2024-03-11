@@ -1,6 +1,11 @@
+@font-face {
+  font-family: FalconPunch;
+  src: url('./../fonts/falconpunch.ttf') format('truetype');
+}
+
 body {
   font-family: Arial, sans-serif;
-  margin-bottom: 10px;
+  margin: 0;
   padding: 0;
   background-color: #fff;
 }
@@ -9,43 +14,29 @@ body {
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Vertically align elements */
   /* Adjust spacing as needed */
-  margin-bottom: 5px; /* Add space below the content */
+  margin-bottom: 10em; /* Add space below the content */
 }
 
 .container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
-}
-
-.site-footer {
-  display: flex;
-  align-items: center; /* Keeps elements vertically centered */
-  justify-content: flex-start; /* Aligns elements to the left */
-  background-color: #D3D3D3;
-  padding: 5px 0;
-}
-
-.site-footer p {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #666;
-  text-align: center;
+  padding: 20em;
 }
 
 .site-header {
   display: flex;
   align-items: center; /* Keeps elements vertically centered */
   justify-content: flex-start; /* Aligns elements to the left */
-  background-color: #D3D3D3;
-  padding: 20px 0;
+  background-color: #f5f5f5;
+  padding: 2em 0;
 }
 
 .site-header h1 {
+  font-family: FalconPunch, sans-serif;
   font-size: 2em;
-  margin-bottom: 10px;
+  margin-bottom: 10em;
   color: #333;
-  white-space: nowrap ;
+  /* Adjust margin as needed for spacing */
 }
 
 .site-header a {
@@ -54,47 +45,79 @@ body {
 
 .site-header p {
   font-size: 1.2em;
-  margin-bottom: 20px;
+  margin-bottom: 20em;
   color: #666;
 }
 
 .site-header img {
   float: left;
   /* Adjust width as needed */
-  width: 100px;
+  width: 100em;
   height: auto; /* Maintain aspect ratio */
+}
+
+.site-footer {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #D3D3D3;
+  padding: 5em;
+}
+
+.site-footer p {
+  font-size: 1.2em;
+  margin-bottom: 10em;
+  color: #666;
+  text-align: center;
+}
+
+.featured-articles {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50em;
+  padding-top: 25em;
+  padding-left: 10em;
 }
 
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
-  width: 200px;
+  width: 200em;
   height: auto; /* Maintain aspect ratio */
 }
 
 .main-navigation {
+  font-family: FalconPunch, sans-serif;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 10em;
   text-align: center;
-  white-space: nowrap ;
-  /*margin-bottom: 2px; /* Add space below the content */
+}
+
+.article-page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50em;
+  padding-top: 25em;
+  padding-left: 10em;
 }
 
 .main-navigation ul {
-  display: flex; /* Enable flexbox for text wrapping */
+  list-style: none;
+  margin: 0;
+  padding: 5em;
   /* Other existing styles */
 }
 
 .main-navigation li {
-  display: inline-block; /* Maintain block behavior for boxes */
-  /* Other existing styles */
+  display: inline-block; /* Maintain block behavior for boxes on desktop */
+  margin: 0 10px; /* Adjust spacing as needed */
 }
 
 .main-navigation a {
   color: #fff;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10em 20em;
   font-weight: bold;
 }
 
@@ -103,7 +126,7 @@ body {
 }
 
 .content-wrapper {
-  padding: 20px;
+  padding: 20em;
 }
 
 .hero-section {
@@ -112,7 +135,7 @@ body {
 }
 
 .hero-section img{
-  width: 400px;
+  width: 400em;
   height: auto; /* Maintain aspect ratio */ 
 }
 
@@ -129,7 +152,18 @@ body {
 }
 
 @media (max-width: 768px) {
-  .main-navigation li a {
-    font-size: 0.9em; /* Adjust font size as needed */
+  .main-navigation {
+    text-align: center; /* Center navigation on mobile */
+  }
+
+  .main-navigation ul {
+    display: flex; /* Enable flexbox for wrapping on mobile */
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .main-navigation li {
+    display: block; /* Change to block for single line on mobile */
+    width: 100%; /* Make each item full width */
+    margin: 10em; /* Adjust spacing between items */
   }
 }
