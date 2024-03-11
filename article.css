@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header-content {
+  display: flex; /* Flexbox for logo and heading alignment  */
+  justify-content: space-between; /* Align elements horizontally */
+  align-items: center; /* Align elements vertically */
+  padding: 20px;
+  background-color: #F0F0F0;
+}
+
+.site-header h1,
+.site-header h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.main-navigation a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.main-navigation a:hover {
+  background-color: #222;
+}
+
+.content-wrapper {
+  padding: 20px;
+}
+
+.article-detail {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px; /* Add subtle rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  margin-bottom: 20px;
+}
+
+.article-detail header {
+  margin-bottom: 15px;
+}
+
+.article-detail h2 {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.article-detail .author {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.article-detail article p {
+  line-height: 1.5; /* Adjust line spacing for readability */
+  margin-bottom: 15px;
+}
+
+
+.site-footer {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #D3D3D3;
+  padding: 5px;
+}
+
+.site-footer p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666;
+  text-align: center;
+}
