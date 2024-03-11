@@ -2,17 +2,23 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fff;
 }
 
 .header-content {
-  display: flex; /* Flexbox for logo and heading alignment  */
-  justify-content: space-between; /* Align elements horizontally */
-  align-items: center; /* Align elements vertically */
-  padding: 20px;
-  background-color: #F0F0F0;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically align elements */
+  /* Adjust spacing as needed */
+  margin-bottom: 10px; /* Add space below the content */
 }
 
-site-header {
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.site-header {
   display: flex;
   align-items: center; /* Keeps elements vertically centered */
   justify-content: flex-start; /* Aligns elements to the left */
@@ -20,10 +26,58 @@ site-header {
   padding: 2px 0;
 }
 
-.site-header h1,
-.site-header h2 {
-  margin: 0;
-  padding: 0;
+.site-header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+  /* Adjust margin as needed for spacing */
+}
+
+.site-header a {
+  /* Existing styles */
+}
+
+.site-header p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.site-header img {
+  float: left;
+  /* Adjust width as needed */
+  width: 100px;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.site-footer {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #D3D3D3;
+  padding: 5px;
+}
+
+.site-footer p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #666;
+  text-align: center;
+}
+
+.featured-articles {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
+.featured-articles img,
+.article-card img {
+  /* Adjust width as needed */
+  width: 200px;
+  height: auto; /* Maintain aspect ratio */
 }
 
 .main-navigation {
@@ -33,15 +87,24 @@ site-header {
   text-align: center;
 }
 
+.article-page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
 .main-navigation ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 5px;
+  /* Other existing styles */
 }
 
 .main-navigation li {
-  display: inline-block;
-  margin: 0 10px;
+  display: inline-block; /* Maintain block behavior for boxes on desktop */
+  margin: 0 10px; /* Adjust spacing as needed */
 }
 
 .main-navigation a {
@@ -57,6 +120,45 @@ site-header {
 
 .content-wrapper {
   padding: 20px;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+}
+
+.hero-section img{
+  width: 400px;
+  height: auto; /* Maintain aspect ratio */ 
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .main-navigation {
+    text-align: center; /* Center navigation on mobile */
+  }
+
+  .main-navigation ul {
+    display: flex; /* Enable flexbox for wrapping on mobile */
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .main-navigation li {
+    display: block; /* Change to block for single line on mobile */
+    width: 100%; /* Make each item full width */
+    margin: 10px; /* Adjust spacing between items */
+  }
 }
 
 .article-detail {
@@ -84,20 +186,4 @@ site-header {
 .article-detail article p {
   line-height: 1.5; /* Adjust line spacing for readability */
   margin-bottom: 15px;
-}
-
-
-.site-footer {
-  display: flex;
-  align-items: center; /* Keeps elements vertically centered */
-  justify-content: flex-start; /* Aligns elements to the left */
-  background-color: #D3D3D3;
-  padding: 5px;
-}
-
-.site-footer p {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #666;
-  text-align: center;
 }
