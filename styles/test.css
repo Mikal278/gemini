@@ -18,11 +18,14 @@ body {
 }
 
 .container {
-  max-width: 100%;
+  max-width: 100vw; /* Fills the viewport width */
   margin: 0 auto;
-  padding: 2rem; /* Use rem for padding */
+  padding: 2rem;
 }
 
+.content-wrapper {
+  display: flex; /* Make it a flex container */
+}
 .site-header {
   display: flex;
   align-items: center; /* Keeps elements vertically centered */
@@ -72,11 +75,10 @@ body {
 }
 
 .featured-articles {
-  max-width: 100%;
+  max-width: 100vw;
   margin: 0 auto;
-  padding-bottom: 6.25rem; /* Use rem for padding */
-  padding-top: 3.125rem; /* Use rem for padding */
-  padding-left: 1.25rem; /* Use rem for padding */
+  padding-bottom: 25vh; /* Padding based on viewport height */
+  padding-top: 15vh;
 }
 
 .featured-articles img,
