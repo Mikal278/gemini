@@ -33,7 +33,7 @@ body {
 
 .site-header h1 {
   font-family: FalconPunch, sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 10px;
   color: #333;
   /* Adjust margin as needed for spacing */
@@ -52,7 +52,7 @@ body {
 .site-header img {
   float: left;
   /* Adjust width as needed */
-  width: 100px;
+  width: 6 rem;
   height: auto; /* Maintain aspect ratio */
 }
 
