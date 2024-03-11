@@ -165,7 +165,7 @@ body {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px; /* Add subtle rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1); /* Add subtle shadow */
   margin-bottom: 20px;
 }
 
