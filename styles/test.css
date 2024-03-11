@@ -29,6 +29,7 @@ body {
   justify-content: flex-start; /* Aligns elements to the left */
   background-color: #f5f5f5;
   padding: 2px 0;
+  width: 100vw;
 }
 
 .site-header h1 {
