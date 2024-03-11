@@ -90,7 +90,8 @@ body {
   font-family: FalconPunch, sans-serif;
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  width: 80vw; /* Use viewport width */
+  padding: 1rem; /* Use rem or em for padding */
   text-align: center;
 }
 
@@ -154,6 +155,7 @@ body {
 @media (max-width: 768px) {
   .main-navigation {
     text-align: center; /* Center navigation on mobile */
+    flex-wrap: wrap; /* Wrap items on mobile */
   }
 
   .main-navigation ul {
