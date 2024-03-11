@@ -12,6 +12,14 @@ body {
   background-color: #F0F0F0;
 }
 
+site-header {
+  display: flex;
+  align-items: center; /* Keeps elements vertically centered */
+  justify-content: flex-start; /* Aligns elements to the left */
+  background-color: #f5f5f5;
+  padding: 2px 0;
+}
+
 .site-header h1,
 .site-header h2 {
   margin: 0;
