@@ -188,6 +188,11 @@ body {
   max-height: auto; /* Restrict maximum height */
 }
 
+.article-detail .author-info {
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Vertically align content */
+}
+
 @media (max-width: 768px) {
   .main-navigation {
     text-align: center; /* Center navigation on mobile */
