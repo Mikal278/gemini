@@ -185,15 +185,14 @@ body {
   margin-bottom: 5px;
 }
 
-.author {
+.article-detail .author {
   font-size: 0.9em;
   color: #666;
-  
 }
 
-.author img {
- width: 1rem;
- height: 0 auto;
+.article-detail .author img {
+  width: 1rem;
+  height: auto; /* Maintain aspect ratio based on image content */
 }
 
 .article-detail article p {
