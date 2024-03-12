@@ -82,8 +82,9 @@ body {
 .featured-articles img,
 .article-card img {
   /* Adjust width as needed */
-  width: 200px;
+  width: 15em;
   height: auto; /* Maintain aspect ratio */
+  margin-top: 1em;
 }
 
 .main-navigation {
