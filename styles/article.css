@@ -151,8 +151,6 @@ body {
   width: 50%;
 }
 
-
-
 .article-detail {
   background-color: #fff;
   padding: 20px;
@@ -178,6 +176,7 @@ body {
 .article-detail .author img {
   width: 1rem;
   height: auto; /* Maintain aspect ratio based on image content */
+  max-width: 200px; /* Restrict max width */
 }
 
 .article-detail article p {
