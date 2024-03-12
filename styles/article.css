@@ -175,7 +175,7 @@ body {
 
 .article-detail .author img {
   max-width: 30px; /* Restrict maximum width */
-  max-height: 30px; /* Restrict maximum height */
+  height: auto; /* Restrict maximum height */
 }
 
 .article-detail article p {
@@ -185,7 +185,7 @@ body {
 
 .article-detail .author-image {
   max-width: 3rem; /* Restrict maximum width */
-  max-height: auto; /* Restrict maximum height */
+  height: auto; /* Restrict maximum height */
 }
 
 .article-detail .author-info {
