@@ -178,11 +178,14 @@ body {
   max-height: 30px; /* Restrict maximum height */
 }
 
-
-
 .article-detail article p {
   line-height: 1.5; /* Adjust line spacing for readability */
   margin-bottom: 15px;
+}
+
+.article-detail .author-image {
+  max-width: 3rem; /* Restrict maximum width */
+  max-height: auto; /* Restrict maximum height */
 }
 
 @media (max-width: 768px) {
@@ -199,37 +202,5 @@ body {
     display: block; /* Change to block for single line on mobile */
     width: 100%; /* Make each item full width */
     margin: 10px; /* Adjust spacing between items */
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .article-detail {
-    padding: 15px; /* Adjust padding on smaller screens */
-  }
-
-  .article-detail header h2 {
-    font-size: 1.5em; /* Adjust heading size on mobile */
-  }
-
-  .article-detail .author {
-    font-size: 0.8em; /* Adjust font size on mobile */
-  }
-
-  .article-detail .author img {
-    width: 2rem; /* Adjust image width on mobile */
-  }
-
-  .article-detail article {
-    display: flex; /* Arrange content in a row on mobile */
-    flex-direction: column; /* Stack elements vertically */
-  }
-
-  .article-detail article p {
-    margin-bottom: 10px; /* Adjust spacing on mobile */
-  }
-
-  .article-detail article img {
-    width: 100%; /* Make image full width on mobile */
-    margin-bottom: 10px; /* Add spacing below image */
   }
 }
