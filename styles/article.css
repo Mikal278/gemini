@@ -174,10 +174,11 @@ body {
 }
 
 .article-detail .author img {
-  width: 1rem;
-  height: auto; /* Maintain aspect ratio based on image content */
-  max-width: 200px; /* Restrict max width */
+  max-width: 30px; /* Restrict maximum width */
+  max-height: 30px; /* Restrict maximum height */
 }
+
+
 
 .article-detail article p {
   line-height: 1.5; /* Adjust line spacing for readability */
