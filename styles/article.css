@@ -185,6 +185,10 @@ body {
   margin-bottom: 15px;
 }
 
+.article-detail article li {
+  line-height: 1.5; /* Adjust line spacing for readability */
+}
+
 .article-detail .author-image {
   max-width: 3rem; /* Restrict maximum width */
   height: auto; /* Restrict maximum height */
