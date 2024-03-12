@@ -190,7 +190,7 @@ body {
 
 .article-detail .author-info {
   display: flex; /* Enable flexbox layout */
-  padding: 1rem;
+  margin-right: 2rem;
   align-items: center; /* Vertically align content */
 }
 
