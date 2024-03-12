@@ -171,6 +171,7 @@ body {
 .article-detail .author {
   font-size: 0.9em;
   color: #666;
+  margin: 1em;
 }
 
 .article-detail .author img {
@@ -190,7 +191,6 @@ body {
 
 .article-detail .author-info {
   display: flex; /* Enable flexbox layout */
-  margin-right: 2rem;
   align-items: center; /* Vertically align content */
 }
 
