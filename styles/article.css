@@ -185,13 +185,13 @@ body {
   margin-bottom: 5px;
 }
 
-.article-detail .author {
+.author {
   font-size: 0.9em;
   color: #666;
   
 }
 
-.article-detail .author img {
+.author img {
  width: 2rem;
  height: 0 auto;
 }
