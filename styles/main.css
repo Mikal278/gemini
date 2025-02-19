@@ -121,9 +121,9 @@ main {
 
 .article-card img, .vehicle-card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  object-fit: contain; /* Adjusting from 'cover' to 'contain' to prevent cropping */
   border-radius: 10px;
+  max-height: 180px; /* Maintain a max height to avoid excessive resizing */
 }
 
 .article-card h3, .vehicle-card h3 {
