@@ -63,7 +63,8 @@ body {
 
 .article-card img {
   width: 250px;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
