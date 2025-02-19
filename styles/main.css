@@ -22,6 +22,10 @@ main {
   padding: 10px 20px;
 }
 
+.site-header h1 {
+  color: #fff; 
+}
+
 .site-header img {
   width: 60px;
   height: auto;
