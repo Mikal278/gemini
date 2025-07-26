@@ -2,45 +2,40 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Philadelphia Property Lookup Test</title>
+  <title>OPA Street Address Search</title>
 </head>
 <body>
-  <h2>Type part of a Philly address (try: <code>67TH</code> or <code>635</code>)</h2>
+  <h2>Philadelphia Address Lookup</h2>
   <input id="input" placeholder="e.g. 635 N 67TH ST">
   <button onclick="search()">Search</button>
   <pre id="output">Waiting...</pre>
 
   <script>
-    function search() {
-      const query = document.getElementById('input').value.trim().toUpperCase();
-      const output = document.getElementById('output');
-      if (!query || query.length < 3) {
-        output.textContent = 'Please enter at least 3 characters.';
+    async function search() {
+      const input = document.getElementById("input").value.trim().toUpperCase();
+      const output = document.getElementById("output");
+      if (input.length < 3) {
+        output.textContent = "Enter at least 3 characters.";
         return;
       }
 
-      // WORKING query format
-      const sql = `SELECT street_address FROM opa_properties_public WHERE street_address ILIKE '%${query}%' LIMIT 10`;
-      const encoded = encodeURIComponent(sql);
-      const url = `https://phl.carto.com/api/v2/sql?q=${encoded}`;
+      const query = `SELECT street_address FROM opa_properties_public WHERE street_address ILIKE '%${input.replace(/'/g, "''")}%' LIMIT 10`;
+      const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(query)}`;
 
-      output.textContent = 'Fetching...\n' + url;
+      output.textContent = `Fetching...\n${url}`;
 
-      fetch(url)
-        .then(r => {
-          if (!r.ok) throw new Error(`HTTP ${r.status} - ${r.statusText}`);
-          return r.json();
-        })
-        .then(data => {
-          if (!data.rows.length) {
-            output.textContent = 'No results found.';
-          } else {
-            output.textContent = 'Results:\n' + data.rows.map(r => r.street_address).join('\n');
-          }
-        })
-        .catch(err => {
-          output.textContent = 'Error fetching results:\n' + err.message;
-        });
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (data.rows.length === 0) {
+          output.textContent = "No matches found.";
+        } else {
+          output.textContent = "Matches:\n" + data.rows.map(r => r.street_address).join("\n");
+        }
+      } catch (err) {
+        output.textContent = "Fetch failed:\n" + err.message;
+      }
     }
   </script>
 </body>
