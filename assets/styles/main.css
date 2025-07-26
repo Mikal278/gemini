@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="images/1kworld.ico">
+  <title>1K Investments - Learn Financial Literacy</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head> 
+<body>
+  
+<header class="site-header">
+  <a href="index.html">
+    <h1>1K Investments LLC</h1>
+  </a>
+</header>
+
+<nav class="main-navigation">
+  <ul>
+    <li><a href="budget">Budgeting</a></li>
+    <li><a href="stocks">Stock Market Investing</a></li>
+    <li><a href="real-estate">Real Estate Investing</a></li>
+    <li><a href="#">Passive Income</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h2 class="featured-title">Featured Articles</h2>
+  <section class="featured-articles">
+    <article class="article-card">
+      <img src="images/man-budget.jpg" alt="Budgeting Image">
+      <h3>Budgeting for Success with the 50/30/20 Rule</h3>
+      <p>The 50/30/20 rule is a simple yet effective budgeting strategy that can help you manage your money effectively.</p>
+      <a class="read-more" href="budget-articles/budgeting-for-success.html">Read More</a>
+    </article>
+    <article class="article-card">
+      <img src="images/stocks.png" alt="Stocks Image">
+      <h3>Understanding the Stock Market for Beginners</h3>
+      <p>Simple guide that will break down the basics of how investing works and equip you with the knowledge you need to get started.</p>
+      <a class="read-more" href="stock-articles/stock-market-for-beginners.html">Read More</a>
+    </article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2024 1K Investments LLC. All rights reserved. NOT FINANCIAL ADVICE</p>
+</footer>
+
+</body>
+</html>
