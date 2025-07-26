@@ -76,7 +76,7 @@
 <body>
   <div class="app">
     <header>
-      <a href="../" class="back-button">&larr; Back</a>
+      <a href="real-estate.html" class="back-button">&larr; Back</a>
       <h1>Pro Investment Calculator</h1>
     </header>
     <main>
@@ -172,9 +172,9 @@
       suggestionsList.style.display = 'none';
       if (input.length < 3) return;
 
-      const search = input.toUpperCase().replace(/[^A-Z0-9 ]/g, '').trim();
-      const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '%${search}%' LIMIT 5`;
-      const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(sql)}`;
+      const search = input.toUpperCase();
+      const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '%${search}%' ORDER BY street_address LIMIT 10`;
+      const url = 'https://phl.carto.com/api/v2/sql?q=' + encodeURIComponent(sql);
 
       fetch(url)
         .then(res => res.json())
@@ -200,7 +200,7 @@
               document.getElementById('bathrooms').value = result.full_bathroom_count + (result.half_bathroom_count * 0.5);
               document.getElementById('yearBuilt').value = result.year_built;
               document.getElementById('taxes').value = (result.market_value * 0.01399).toFixed(2);
-              calculate(); // auto-trigger calculation
+              calculate();
             });
             suggestionsList.appendChild(div);
           });
