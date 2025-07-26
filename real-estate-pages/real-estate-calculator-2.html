@@ -42,6 +42,21 @@
       <input list="addressSuggestions" type="text" id="address" placeholder="123 Main St">
       <datalist id="addressSuggestions"></datalist>
 
+      <label>Square Footage</label>
+      <input type="number" id="squareFootage" placeholder="Auto-filled" readonly>
+
+      <label>Bedrooms</label>
+      <input type="number" id="bedrooms" placeholder="Auto-filled" readonly>
+
+      <label>Bathrooms</label>
+      <input type="number" id="bathrooms" placeholder="Auto-filled" readonly>
+
+      <label>Year Built</label>
+      <input type="number" id="yearBuilt" placeholder="Auto-filled" readonly>
+
+      <label>Estimated Property Taxes ($)</label>
+      <input type="number" id="taxes" placeholder="Auto-filled" readonly>
+
       <label>Purchase Price ($)</label>
       <input type="number" id="purchasePrice" placeholder="200000">
 
@@ -102,23 +117,45 @@
     document.getElementById('results').innerHTML = html;
   }
 
-  // Use Nominatim API to get real address suggestions (restricted to USA)
+  // Use Philadelphia OPA API for address suggestions and property info
   document.getElementById('address').addEventListener('input', function () {
     const input = this.value.trim();
     const list = document.getElementById('addressSuggestions');
     list.innerHTML = '';
     if (input.length < 3) return;
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&countrycodes=us&q=${encodeURIComponent(input)}`)
+    fetch(`https://api.phila.gov/ais/v1/search/${encodeURIComponent(input)}?gatekeeperKey=YOUR_API_KEY_HERE`)
       .then(res => res.json())
       .then(data => {
-        data.slice(0, 5).forEach(place => {
+        const results = data.features || [];
+        results.slice(0, 5).forEach(result => {
+          const address = result.properties.street_address;
           const option = document.createElement('option');
-          option.value = place.display_name;
+          option.value = address;
           list.appendChild(option);
         });
       })
       .catch(err => console.error('Address lookup failed:', err));
+  });
+
+  // Auto-populate property info on address selection
+  document.getElementById('address').addEventListener('change', function () {
+    const input = this.value.trim();
+    if (!input) return;
+
+    fetch(`https://api.phila.gov/ais/v1/search/${encodeURIComponent(input)}?gatekeeperKey=YOUR_API_KEY_HERE`)
+      .then(res => res.json())
+      .then(data => {
+        const prop = data.features[0]?.properties;
+        if (!prop) return;
+
+        document.getElementById('squareFootage').value = prop.opa_properties?.building_area || '';
+        document.getElementById('bedrooms').value = prop.opa_properties?.bedrooms || '';
+        document.getElementById('bathrooms').value = prop.opa_properties?.bathrooms || '';
+        document.getElementById('yearBuilt').value = prop.opa_properties?.year_built || '';
+        document.getElementById('taxes').value = prop.opa_properties?.total_assessed_value ? (prop.opa_properties.total_assessed_value * 0.01399).toFixed(2) : '';
+      })
+      .catch(err => console.error('Failed to fetch property info:', err));
   });
   </script>
 </body>
