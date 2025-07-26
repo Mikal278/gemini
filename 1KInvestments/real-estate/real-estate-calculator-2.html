@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Real Estate Investment Pro</title>
+  <style>
+    body { background: #f3f5f8; color: #333; font-family: sans-serif; margin: 0; padding: 0; }
+    .app { max-width: 500px; margin: 2rem auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; }
+    header { padding: 1.5rem; text-align: center; border-bottom: 1px solid #e1e4e8; position: relative; }
+    header h1 { margin: 0; font-size: 1.5rem; color: #2a3f54; }
+    .back-button {
+      position: absolute;
+      left: 1rem;
+      top: 1.5rem;
+      font-size: 0.9rem;
+      background-color: #e7e7e7;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+    }
+    main { padding: 1.5rem; position: relative; }
+    label { display: block; margin-bottom: 0.25rem; font-weight: bold; font-size: 0.9rem; }
+    input, button { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem; }
+    button { background: #1a73e8; color: white; border: none; font-weight: bold; cursor: pointer; }
+    button:hover { background: #1666c1; }
+    .results { background: #eef5fc; padding: 1rem; border-radius: 6px; font-size: 0.95rem; }
+    .result-row { margin-bottom: 0.5rem; }
+    .rating { font-size: 1.2rem; font-weight: bold; margin-top: 1rem; }
+    #suggestionsList {
+      position: absolute;
+      top: 4.2rem;
+      width: 100%;
+      max-height: 160px;
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+      z-index: 1000;
+      display: none;
+    }
+    #suggestionsList div {
+      padding: 10px;
+      cursor: pointer;
+    }
+    #suggestionsList div:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <a href="real-estate.html" class="back-button">&larr; Back</a>
+      <h1>Pro Investment Calculator</h1>
+    </header>
+    <main>
+      <!-- Input fields section -->
+      <label>Property Address</label>
+      <input type="text" id="address" placeholder="123 Main St" autocomplete="off">
+      <div id="suggestionsList"></div>
+
+      <label>Square Footage</label>
+      <input type="number" id="squareFootage" placeholder="Auto-filled" readonly>
+
+      <label>Bedrooms</label>
+      <input type="number" id="bedrooms" placeholder="Auto-filled" readonly>
+
+      <label>Bathrooms</label>
+      <input type="number" id="bathrooms" placeholder="Auto-filled" readonly>
+
+      <label>Year Built</label>
+      <input type="number" id="yearBuilt" placeholder="Auto-filled" readonly>
+
+      <label>Estimated Property Taxes ($)</label>
+      <input type="number" id="taxes" placeholder="Auto-filled" readonly>
+
+      <label>Purchase Price ($)</label>
+      <input type="number" id="purchasePrice" placeholder="200000">
+
+      <label>Monthly Rent ($)</label>
+      <input type="number" id="rent" placeholder="1800">
+
+      <label>Monthly Expenses ($)</label>
+      <input type="number" id="expenses" placeholder="600">
+
+      <label>Time Frame (years)</label>
+      <input type="number" id="years" placeholder="5">
+
+      <label>Expected Appreciation (%)</label>
+      <input type="number" id="appreciation" placeholder="3">
+
+      <label>Upload Property Image (for repair estimate)</label>
+      <input type="file" id="imageUpload" accept="image/*">
+
+      <button onclick="calculate()">Analyze Deal</button>
+
+      <!-- Results display -->
+      <div class="results" id="results"></div>
+    </main>
+  </div>
+
+  <script>
+  function calculate() {
+    const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
+    const rent = parseFloat(document.getElementById('rent').value) || 0;
+    const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+    const years = parseFloat(document.getElementById('years').value) || 0;
+    const appr = (parseFloat(document.getElementById('appreciation').value) || 0) / 100;
+    const monthlyCash = rent - expenses;
+    const annualCash = monthlyCash * 12;
+    const roi = price > 0 ? (annualCash / price) * 100 : 0;
+    const pv = price;
+    const fv = pv * Math.pow(1 + appr, years);
+    let rating = '';
+    if (roi < 2 || monthlyCash < 0) rating = 'Very Bad Purchase';
+    else if (roi < 5) rating = 'May Be a Bad Purchase';
+    else if (roi < 8) rating = 'Could Be a Good Purchase';
+    else if (roi < 12) rating = 'Potential Great Purchase';
+    else rating = 'Amazing Deal';
+    const addr = document.getElementById('address').value.trim() || '–';
+    let html = `
+      <div class="result-row"><strong>Address:</strong> ${addr}</div>
+      <div class="result-row"><strong>ROI:</strong> ${roi.toFixed(2)}%</div>
+      <div class="result-row"><strong>Monthly Cash Flow:</strong> $${monthlyCash.toFixed(2)}</div>
+      <div class="result-row"><strong>Annual Cash Flow:</strong> $${annualCash.toFixed(2)}</div>
+      <div class="result-row"><strong>Future Value (${years} yrs):</strong> $${fv.toFixed(2)}</div>
+      <div class="result-row"><strong>Present Value:</strong> $${pv.toFixed(2)}</div>
+      <div class="rating">${rating}</div>
+    `;
+    const image = document.getElementById('imageUpload').files[0];
+    if (image) {
+      html += `<div class="result-row"><strong>Estimated Repairs:</strong> $8,000 (placeholder)</div>`;
+    }
+    document.getElementById('results').innerHTML = html;
+  }
+
+  const addressInput = document.getElementById('address');
+  const suggestionsList = document.getElementById('suggestionsList');
+
+  addressInput.addEventListener('input', function () {
+    const input = this.value.trim();
+    suggestionsList.innerHTML = '';
+    suggestionsList.style.display = 'none';
+    if (input.length < 3) return;
+
+  
+    const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '%${input.toUpperCase()}%' LIMIT 5`;
+    const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(sql)}`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        const results = data.rows || [];
+        if (results.length === 0) return;
+        results.forEach(result => {
+          const div = document.createElement('div');
+          div.textContent = result.street_address;
+          div.addEventListener('click', () => {
+            addressInput.value = div.textContent;
+            suggestionsList.innerHTML = '';
+            suggestionsList.style.display = 'none';
+            document.getElementById('squareFootage').value = result.total_livable_area;
+            document.getElementById('bedrooms').value = result.bedrooms;
+            document.getElementById('bathrooms').value = result.full_bathroom_count + (result.half_bathroom_count * 0.5);
+            document.getElementById('yearBuilt').value = result.year_built;
+            document.getElementById('taxes').value = (result.market_value * 0.01399).toFixed(2);
+          });
+          suggestionsList.appendChild(div);
+        });
+        suggestionsList.style.display = 'block';
+      })
+      .catch(err => console.error('OPA data lookup failed:', err));
+  });
+  </script>
+</body>
+</html>
