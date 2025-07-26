@@ -1,0 +1,183 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.site-header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Navigation */
+.main-navigation {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.main-navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-navigation li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.main-navigation a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+}
+
+.main-navigation a:hover {
+  background-color: #ff6600;
+  border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/dealership-hero.jpg') no-repeat center center/cover;
+  text-align: center;
+  color: white;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e65c00;
+}
+
+/* Featured Sections */
+.featured-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+}
+
+/* Article & Vehicle Cards */
+.featured-articles, .featured-vehicles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.article-card, .vehicle-card {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.article-card img, .vehicle-card img {
+  width: 100%;
+  object-fit: contain; /* Adjusting from 'cover' to 'contain' to prevent cropping */
+  border-radius: 10px;
+  max-height: 180px; /* Maintain a max height to avoid excessive resizing */
+}
+
+.article-card h3, .vehicle-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.article-card p, .vehicle-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #555;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 40px 20px;
+}
+
+.cta-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Footer */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  font-size: 14px;
+  border-top: 4px solid #444;
+  margin-top: auto;
+}
