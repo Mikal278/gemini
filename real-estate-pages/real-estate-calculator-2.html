@@ -102,14 +102,14 @@
     document.getElementById('results').innerHTML = html;
   }
 
-  // Use Nominatim API to get real address suggestions
+  // Use Nominatim API to get real address suggestions (restricted to USA)
   document.getElementById('address').addEventListener('input', function () {
     const input = this.value.trim();
     const list = document.getElementById('addressSuggestions');
     list.innerHTML = '';
-    if (input.length < 3) return; // Wait until user types at least 3 characters
+    if (input.length < 3) return;
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(input)}`)
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&countrycodes=us&q=${encodeURIComponent(input)}`)
       .then(res => res.json())
       .then(data => {
         data.slice(0, 5).forEach(place => {
