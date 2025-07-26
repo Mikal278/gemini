@@ -145,31 +145,32 @@
     suggestionsList.style.display = 'none';
     if (input.length < 3) return;
 
-    fetch(`https://zillow-com1.p.rapidapi.com/propertyExtendedSearch?location=${encodeURIComponent(input)}&status_type=FOR_SALE`, {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': 'b155a1d128mshf356928daceff51p180330jsnde6bdd75489a',
-        'X-RapidAPI-Host': 'zillow-com1.p.rapidapi.com'
-      }
-    })
+    const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '%25${input}%25' LIMIT 5`;
+    const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(sql)}`;
+
+    fetch(url)
       .then(res => res.json())
       .then(data => {
-        const results = data.props || [];
+        const results = data.rows || [];
         if (results.length === 0) return;
-        results.slice(0, 5).forEach(result => {
+        results.forEach(result => {
           const div = document.createElement('div');
-          div.textContent = result.address.streetAddress + ', ' + result.address.city + ', ' + result.address.state + ' ' + result.address.zipcode;
+          div.textContent = result.street_address;
           div.addEventListener('click', () => {
             addressInput.value = div.textContent;
             suggestionsList.innerHTML = '';
             suggestionsList.style.display = 'none';
-            // Optionally fill more property info here if needed
+            document.getElementById('squareFootage').value = result.total_livable_area;
+            document.getElementById('bedrooms').value = result.bedrooms;
+            document.getElementById('bathrooms').value = result.full_bathroom_count + (result.half_bathroom_count * 0.5);
+            document.getElementById('yearBuilt').value = result.year_built;
+            document.getElementById('taxes').value = (result.market_value * 0.01399).toFixed(2);
           });
           suggestionsList.appendChild(div);
         });
         suggestionsList.style.display = 'block';
       })
-      .catch(err => console.error('Zillow API address lookup failed:', err));
+      .catch(err => console.error('OPA data lookup failed:', err));
   });
   </script>
 </body>
