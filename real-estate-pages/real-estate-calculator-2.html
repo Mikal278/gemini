@@ -145,41 +145,32 @@
     suggestionsList.style.display = 'none';
     if (input.length < 3) return;
 
-    fetch(`https://api.phila.gov/ais/v1/search/${encodeURIComponent(input)}?gatekeeperKey=YOUR_API_KEY_HERE`)
+    fetch(`https://zillow-com1.p.rapidapi.com/propertyExtendedSearch?location=${encodeURIComponent(input)}&status_type=FOR_SALE`, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'b155a1d128mshf356928daceff51p180330jsnde6bdd75489a',
+        'X-RapidAPI-Host': 'zillow-com1.p.rapidapi.com'
+      }
+    })
       .then(res => res.json())
       .then(data => {
-        const results = data.features || [];
+        const results = data.props || [];
         if (results.length === 0) return;
         results.slice(0, 5).forEach(result => {
           const div = document.createElement('div');
-          div.textContent = result.properties.street_address;
+          div.textContent = result.address.streetAddress + ', ' + result.address.city + ', ' + result.address.state + ' ' + result.address.zipcode;
           div.addEventListener('click', () => {
             addressInput.value = div.textContent;
             suggestionsList.innerHTML = '';
             suggestionsList.style.display = 'none';
-            autoFillPropertyInfo(div.textContent);
+            // Optionally fill more property info here if needed
           });
           suggestionsList.appendChild(div);
         });
         suggestionsList.style.display = 'block';
       })
-      .catch(err => console.error('Address lookup failed:', err));
+      .catch(err => console.error('Zillow API address lookup failed:', err));
   });
-
-  function autoFillPropertyInfo(address) {
-    fetch(`https://api.phila.gov/ais/v1/search/${encodeURIComponent(address)}?gatekeeperKey=YOUR_API_KEY_HERE`)
-      .then(res => res.json())
-      .then(data => {
-        const prop = data.features[0]?.properties;
-        if (!prop) return;
-        document.getElementById('squareFootage').value = prop.opa_properties?.building_area || '';
-        document.getElementById('bedrooms').value = prop.opa_properties?.bedrooms || '';
-        document.getElementById('bathrooms').value = prop.opa_properties?.bathrooms || '';
-        document.getElementById('yearBuilt').value = prop.opa_properties?.year_built || '';
-        document.getElementById('taxes').value = prop.opa_properties?.total_assessed_value ? (prop.opa_properties.total_assessed_value * 0.01399).toFixed(2) : '';
-      })
-      .catch(err => console.error('Failed to fetch property info:', err));
-  }
   </script>
 </body>
 </html>
