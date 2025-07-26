@@ -1,50 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="images/1kworld.ico">
-  <title>1K Investments - Learn Financial Literacy</title>
-  <link rel="stylesheet" href="styles/main.css">
-</head> 
-<body>
-  
-<header class="site-header">
-  <a href="index.html">
-    <h1>1K Investments LLC</h1>
-  </a>
-</header>
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-<nav class="main-navigation">
-  <ul>
-    <li><a href="budget">Budgeting</a></li>
-    <li><a href="stocks">Stock Market Investing</a></li>
-    <li><a href="real-estate">Real Estate Investing</a></li>
-    <li><a href="#">Passive Income</a></li>
-  </ul>
-</nav>
+main {
+  flex: 1;
+  padding: 20px;
+}
 
-<main>
-  <h2 class="featured-title">Featured Articles</h2>
-  <section class="featured-articles">
-    <article class="article-card">
-      <img src="images/man-budget.jpg" alt="Budgeting Image">
-      <h3>Budgeting for Success with the 50/30/20 Rule</h3>
-      <p>The 50/30/20 rule is a simple yet effective budgeting strategy that can help you manage your money effectively.</p>
-      <a class="read-more" href="budget-articles/budgeting-for-success.html">Read More</a>
-    </article>
-    <article class="article-card">
-      <img src="images/stocks.png" alt="Stocks Image">
-      <h3>Understanding the Stock Market for Beginners</h3>
-      <p>Simple guide that will break down the basics of how investing works and equip you with the knowledge you need to get started.</p>
-      <a class="read-more" href="stock-articles/stock-market-for-beginners.html">Read More</a>
-    </article>
-  </section>
-</main>
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
 
-<footer class="site-footer">
-  <p>&copy; 2024 1K Investments LLC. All rights reserved. NOT FINANCIAL ADVICE</p>
-</footer>
+.site-header a {
+  text-decoration: none;
+  color: #fff;
+}
 
-</body>
-</html>
+/* Navigation */
+.main-navigation {
+  background-color: #333;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.main-navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-navigation li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.main-navigation a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+}
+
+.main-navigation a:hover {
+  background-color: #ff6600;
+  border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/dealership-hero.jpg') no-repeat center center/cover;
+  text-align: center;
+  color: white;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e65c00;
+}
+
+/* Featured Sections */
+.featured-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+}
+
+/* Article & Vehicle Cards */
+.featured-articles, .featured-vehicles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.article-card, .vehicle-card {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.article-card img, .vehicle-card img {
+  width: 100%;
+  object-fit: contain; /* Adjusting from 'cover' to 'contain' to prevent cropping */
+  border-radius: 10px;
+  max-height: 180px; /* Maintain a max height to avoid excessive resizing */
+}
+
+.article-card h3, .vehicle-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.article-card p, .vehicle-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #555;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 40px 20px;
+}
+
+.cta-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Footer */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  font-size: 14px;
+  border-top: 4px solid #444;
+  margin-top: auto;
+}
