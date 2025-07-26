@@ -22,12 +22,34 @@
     }
     main { padding: 1.5rem; position: relative; }
     label { display: block; margin-bottom: 0.25rem; font-weight: bold; font-size: 0.9rem; }
-    input, button { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid #ccc; font-size: 1rem; }
-    button { background: #1a73e8; color: white; border: none; font-weight: bold; cursor: pointer; }
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
     button:hover { background: #1666c1; }
-    .results { background: #eef5fc; padding: 1rem; border-radius: 6px; font-size: 0.95rem; }
+    .results {
+      background: #eef5fc;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
     .result-row { margin-bottom: 0.5rem; }
-    .rating { font-size: 1.2rem; font-weight: bold; margin-top: 1rem; }
+    .rating {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
     #suggestionsList {
       position: absolute;
       top: 100%;
@@ -54,14 +76,13 @@
 <body>
   <div class="app">
     <header>
-      <a href="../" class="back-button">&larr; Back</a>
+      <a href="real-estate.html" class="back-button">&larr; Back</a>
       <h1>Pro Investment Calculator</h1>
     </header>
     <main>
-      <!-- Input fields section -->
       <label>Property Address</label>
       <div style="position: relative;">
-        <input type="text" id="address" placeholder="1619 N 16TH ST" autocomplete="off">
+        <input type="text" id="address" placeholder="e.g. 635 N 67TH ST" autocomplete="off">
         <div id="suggestionsList"></div>
       </div>
 
@@ -100,98 +121,100 @@
 
       <button onclick="calculate()">Analyze Deal</button>
 
-      <!-- Results display -->
       <div class="results" id="results"></div>
     </main>
   </div>
 
   <script>
-  function calculate() {
-    const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
-    const rent = parseFloat(document.getElementById('rent').value) || 0;
-    const expenses = parseFloat(document.getElementById('expenses').value) || 0;
-    const years = parseFloat(document.getElementById('years').value) || 0;
-    const appr = (parseFloat(document.getElementById('appreciation').value) || 0) / 100;
-    const monthlyCash = rent - expenses;
-    const annualCash = monthlyCash * 12;
-    const roi = price > 0 ? (annualCash / price) * 100 : 0;
-    const pv = price;
-    const fv = pv * Math.pow(1 + appr, years);
-    let rating = '';
-    if (roi < 2 || monthlyCash < 0) rating = 'Very Bad Purchase';
-    else if (roi < 5) rating = 'May Be a Bad Purchase';
-    else if (roi < 8) rating = 'Could Be a Good Purchase';
-    else if (roi < 12) rating = 'Potential Great Purchase';
-    else rating = 'Amazing Deal';
-    const addr = document.getElementById('address').value.trim() || '–';
-    let html = `
-      <div class="result-row"><strong>Address:</strong> ${addr}</div>
-      <div class="result-row"><strong>ROI:</strong> ${roi.toFixed(2)}%</div>
-      <div class="result-row"><strong>Monthly Cash Flow:</strong> $${monthlyCash.toFixed(2)}</div>
-      <div class="result-row"><strong>Annual Cash Flow:</strong> $${annualCash.toFixed(2)}</div>
-      <div class="result-row"><strong>Future Value (${years} yrs):</strong> $${fv.toFixed(2)}</div>
-      <div class="result-row"><strong>Present Value:</strong> $${pv.toFixed(2)}</div>
-      <div class="rating">${rating}</div>
-    `;
-    const image = document.getElementById('imageUpload').files[0];
-    if (image) {
-      html += `<div class="result-row"><strong>Estimated Repairs:</strong> $8,000 (placeholder)</div>`;
+    function calculate() {
+      const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
+      const rent = parseFloat(document.getElementById('rent').value) || 0;
+      const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+      const years = parseFloat(document.getElementById('years').value) || 0;
+      const appr = (parseFloat(document.getElementById('appreciation').value) || 0) / 100;
+      const monthlyCash = rent - expenses;
+      const annualCash = monthlyCash * 12;
+      const roi = price > 0 ? (annualCash / price) * 100 : 0;
+      const pv = price;
+      const fv = pv * Math.pow(1 + appr, years);
+
+      let rating = '';
+      if (roi < 2 || monthlyCash < 0) rating = 'Very Bad Purchase';
+      else if (roi < 5) rating = 'May Be a Bad Purchase';
+      else if (roi < 8) rating = 'Could Be a Good Purchase';
+      else if (roi < 12) rating = 'Potential Great Purchase';
+      else rating = 'Amazing Deal';
+
+      const addr = document.getElementById('address').value.trim() || '–';
+      let html = `
+        <div class="result-row"><strong>Address:</strong> ${addr}</div>
+        <div class="result-row"><strong>ROI:</strong> ${roi.toFixed(2)}%</div>
+        <div class="result-row"><strong>Monthly Cash Flow:</strong> $${monthlyCash.toFixed(2)}</div>
+        <div class="result-row"><strong>Annual Cash Flow:</strong> $${annualCash.toFixed(2)}</div>
+        <div class="result-row"><strong>Future Value (${years} yrs):</strong> $${fv.toFixed(2)}</div>
+        <div class="result-row"><strong>Present Value:</strong> $${pv.toFixed(2)}</div>
+        <div class="rating">${rating}</div>
+      `;
+
+      const image = document.getElementById('imageUpload').files[0];
+      if (image) {
+        html += `<div class="result-row"><strong>Estimated Repairs:</strong> $8,000 (placeholder)</div>`;
+      }
+      document.getElementById('results').innerHTML = html;
     }
-    document.getElementById('results').innerHTML = html;
-  }
 
-  const addressInput = document.getElementById('address');
-  const suggestionsList = document.getElementById('suggestionsList');
+    const addressInput = document.getElementById('address');
+    const suggestionsList = document.getElementById('suggestionsList');
 
-  addressInput.addEventListener('input', function () {
-    const input = this.value.trim();
-    suggestionsList.innerHTML = '';
-    suggestionsList.style.display = 'none';
-    if (input.length < 3) return;
+    addressInput.addEventListener('input', function () {
+      const input = this.value.trim();
+      suggestionsList.innerHTML = '';
+      suggestionsList.style.display = 'none';
+      if (input.length < 3) return;
 
-    const search = input.toUpperCase().replace(/[^A-Z0-9 ]/g, '').trim();
-    const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '${search}%' LIMIT 5`;
-    const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(sql)}`;
+      const search = input.toUpperCase().replace(/[^A-Z0-9 ]/g, '').trim();
+      const sql = `SELECT * FROM opa_properties_public WHERE street_address ILIKE '%${search}%' LIMIT 5`;
+      const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(sql)}`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        const results = data.rows || [];
-        if (results.length === 0) {
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const results = data.rows || [];
+          if (results.length === 0) {
+            const div = document.createElement('div');
+            div.textContent = 'No results found. Try a full street address.';
+            div.style.color = 'gray';
+            suggestionsList.appendChild(div);
+            suggestionsList.style.display = 'block';
+            return;
+          }
+          results.forEach(result => {
+            const div = document.createElement('div');
+            div.textContent = result.street_address;
+            div.addEventListener('click', () => {
+              addressInput.value = div.textContent;
+              suggestionsList.innerHTML = '';
+              suggestionsList.style.display = 'none';
+              document.getElementById('squareFootage').value = result.total_livable_area;
+              document.getElementById('bedrooms').value = result.bedrooms;
+              document.getElementById('bathrooms').value = result.full_bathroom_count + (result.half_bathroom_count * 0.5);
+              document.getElementById('yearBuilt').value = result.year_built;
+              document.getElementById('taxes').value = (result.market_value * 0.01399).toFixed(2);
+              calculate(); // auto-trigger calculation
+            });
+            suggestionsList.appendChild(div);
+          });
+          suggestionsList.style.display = 'block';
+        })
+        .catch(err => {
+          console.error('OPA data lookup failed:', err);
           const div = document.createElement('div');
-          div.textContent = 'No results found. Try a full street address.';
-          div.style.color = 'gray';
+          div.textContent = 'Error fetching results.';
+          div.style.color = 'red';
           suggestionsList.appendChild(div);
           suggestionsList.style.display = 'block';
-          return;
-        }
-        results.forEach(result => {
-          const div = document.createElement('div');
-          div.textContent = result.street_address;
-          div.addEventListener('click', () => {
-            addressInput.value = div.textContent;
-            suggestionsList.innerHTML = '';
-            suggestionsList.style.display = 'none';
-            document.getElementById('squareFootage').value = result.total_livable_area;
-            document.getElementById('bedrooms').value = result.bedrooms;
-            document.getElementById('bathrooms').value = result.full_bathroom_count + (result.half_bathroom_count * 0.5);
-            document.getElementById('yearBuilt').value = result.year_built;
-            document.getElementById('taxes').value = (result.market_value * 0.01399).toFixed(2);
-calculate(); // auto-trigger calculation
-          });
-          suggestionsList.appendChild(div);
         });
-        suggestionsList.style.display = 'block';
-      })
-      .catch(err => {
-        console.error('OPA data lookup failed:', err);
-        const div = document.createElement('div');
-        div.textContent = 'Error fetching results.';
-        div.style.color = 'red';
-        suggestionsList.appendChild(div);
-        suggestionsList.style.display = 'block';
-      });
-  });
+    });
   </script>
 </body>
 </html>
