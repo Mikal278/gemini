@@ -2,41 +2,59 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>OPA Street Address Search</title>
+  <title>Philly Address Search (Offline)</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    input, button { padding: 0.5rem; margin: 0.5rem 0; width: 100%; }
+    #suggestions { border: 1px solid #ccc; max-height: 200px; overflow-y: auto; }
+    #suggestions div { padding: 0.5rem; cursor: pointer; }
+    #suggestions div:hover { background: #eef; }
+  </style>
 </head>
 <body>
-  <h2>Philadelphia Address Lookup</h2>
-  <input id="input" placeholder="e.g. 635 N 67TH ST">
-  <button onclick="search()">Search</button>
-  <pre id="output">Waiting...</pre>
+  <h2>Upload Philadelphia Property CSV</h2>
+  <input type="file" id="csvFile" accept=".csv">
+  
+  <h2>Search Address</h2>
+  <input type="text" id="addressInput" placeholder="Start typing...">
+  <div id="suggestions"></div>
 
   <script>
-    async function search() {
-      const input = document.getElementById("input").value.trim().toUpperCase();
-      const output = document.getElementById("output");
-      if (input.length < 3) {
-        output.textContent = "Enter at least 3 characters.";
-        return;
-      }
+    let properties = [];
 
-      const query = `SELECT street_address FROM opa_properties_public WHERE street_address ILIKE '%${input.replace(/'/g, "''")}%' LIMIT 10`;
-      const url = `https://phl.carto.com/api/v2/sql?q=${encodeURIComponent(query)}`;
-
-      output.textContent = `Fetching...\n${url}`;
-
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        if (data.rows.length === 0) {
-          output.textContent = "No matches found.";
-        } else {
-          output.textContent = "Matches:\n" + data.rows.map(r => r.street_address).join("\n");
+    document.getElementById('csvFile').addEventListener('change', function (e) {
+      Papa.parse(e.target.files[0], {
+        header: true,
+        skipEmptyLines: true,
+        complete: function (results) {
+          properties = results.data;
+          alert('CSV loaded: ' + properties.length + ' properties');
         }
-      } catch (err) {
-        output.textContent = "Fetch failed:\n" + err.message;
-      }
-    }
+      });
+    });
+
+    document.getElementById('addressInput').addEventListener('input', function () {
+      const val = this.value.trim().toUpperCase();
+      const container = document.getElementById('suggestions');
+      container.innerHTML = '';
+
+      if (val.length < 3) return;
+
+      const matches = properties.filter(row =>
+        row.street_address && row.street_address.toUpperCase().includes(val)
+      ).slice(0, 10);
+
+      matches.forEach(row => {
+        const div = document.createElement('div');
+        div.textContent = row.street_address;
+        div.onclick = () => {
+          alert(`You selected:\n${row.street_address}\n\nBeds: ${row.bedrooms}, Baths: ${row.full_bathroom_count}`);
+          container.innerHTML = '';
+        };
+        container.appendChild(div);
+      });
+    });
   </script>
 </body>
 </html>
