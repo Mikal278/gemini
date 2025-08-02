@@ -1,116 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1K Investment Calculator</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f6fa;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      background: #f4f6fb;
+      color: #333;
     }
 
     header {
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
+      padding: 2rem;
       text-align: center;
-      padding: 2rem;
     }
 
-    .calculator {
-      background-color: #fff;
-      max-width: 600px;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
       margin: 2rem auto;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 300px;
     }
 
-    .calculator h2 {
-      margin-top: 0;
-    }
-
-    .calculator label {
+    label {
+      font-weight: 600;
       display: block;
       margin-top: 1rem;
-      font-weight: bold;
     }
 
-    .calculator input {
+    input[type="number"], select {
       width: 100%;
       padding: 0.5rem;
-      margin-top: 0.25rem;
+      margin-top: 0.3rem;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
 
-    .calculator button {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #0a2540;
-      color: white;
-      border: none;
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .metric {
+      flex: 1;
+      background: #f9f9fb;
+      border-left: 5px solid #1e3c72;
+      padding: 1rem;
       border-radius: 5px;
-      cursor: pointer;
+      min-width: 160px;
     }
 
-    .calculator button:hover {
-      background-color: #113a5d;
+    .metric h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
     }
 
-    .results {
-      margin-top: 1.5rem;
+    .recommendations {
+      margin-top: 2rem;
+      background: #fff3f3;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 5px solid #cc0000;
+    }
+
+    .highlight {
       font-weight: bold;
+      color: #cc0000;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>1K Investment Calculator</h1>
-    <p>Evaluate your property with live ROI and AI-powered rating</p>
+    <p>Advanced Real Estate Analysis with AI Recommendations</p>
   </header>
 
-  <div class="calculator">
-    <h2>Real Estate ROI Calculator</h2>
+  <div class="container">
+    <!-- Inputs -->
+    <div class="card">
+      <h2>Investment Details</h2>
+      <label>Purchase Price ($)</label>
+      <input type="number" id="price" value="300000">
 
-    <label for="purchasePrice">Purchase Price ($)</label>
-    <input type="number" id="purchasePrice" />
+      <label>Down Payment (%)</label>
+      <input type="number" id="downPaymentPercent" value="20">
 
-    <label for="repairCost">Repair Costs ($)</label>
-    <input type="number" id="repairCost" />
+      <label>Interest Rate (%)</label>
+      <input type="number" id="rate" value="6.5">
 
-    <label for="rentalIncome">Monthly Rent ($)</label>
-    <input type="number" id="rentalIncome" />
+      <label>Loan Term (Years)</label>
+      <select id="loanTerm">
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="30" selected>30</option>
+      </select>
 
-    <label for="annualExpenses">Annual Expenses ($)</label>
-    <input type="number" id="annualExpenses" />
+      <label>Monthly Rent ($)</label>
+      <input type="number" id="rent" value="2200">
 
-    <button onclick="calculateROI()">Calculate ROI</button>
+      <label>Annual Property Tax ($)</label>
+      <input type="number" id="tax" value="3000">
 
-    <div class="results" id="result"></div>
+      <label>Annual Insurance ($)</label>
+      <input type="number" id="insurance" value="1200">
+
+      <label>Monthly Maintenance ($)</label>
+      <input type="number" id="maintenance" value="150">
+
+      <label>Management Fee (% of Rent)</label>
+      <input type="number" id="managementFee" value="8">
+
+      <button onclick="calculate()" style="margin-top:1.5rem;padding:0.8rem 1.5rem;background:#1e3c72;color:white;border:none;border-radius:5px;cursor:pointer;">Calculate</button>
+    </div>
+
+    <!-- Output -->
+    <div class="card">
+      <h2>Investment Analysis Results</h2>
+      <div class="metrics">
+        <div class="metric">
+          <h3>Monthly Payment</h3>
+          <div id="monthlyPayment">-</div>
+        </div>
+        <div class="metric">
+          <h3>Cash Flow</h3>
+          <div id="cashFlow">-</div>
+        </div>
+        <div class="metric">
+          <h3>Cap Rate</h3>
+          <div id="capRate">-</div>
+        </div>
+        <div class="metric">
+          <h3>Cash on Cash Return</h3>
+          <div id="cashReturn">-</div>
+        </div>
+      </div>
+      <div class="recommendations" id="aiRecommendation">
+        <h4>Investment Recommendations</h4>
+        <p class="highlight">Waiting on calculation...</p>
+      </div>
+    </div>
   </div>
 
   <script>
-    function calculateROI() {
-      const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
-      const repairCost = parseFloat(document.getElementById('repairCost').value) || 0;
-      const rentalIncome = parseFloat(document.getElementById('rentalIncome').value) || 0;
-      const annualExpenses = parseFloat(document.getElementById('annualExpenses').value) || 0;
+    function calculate() {
+      const price = parseFloat(document.getElementById('price').value);
+      const downPct = parseFloat(document.getElementById('downPaymentPercent').value) / 100;
+      const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+      const years = parseInt(document.getElementById('loanTerm').value);
+      const months = years * 12;
+      const rent = parseFloat(document.getElementById('rent').value);
+      const tax = parseFloat(document.getElementById('tax').value);
+      const insurance = parseFloat(document.getElementById('insurance').value);
+      const maintenance = parseFloat(document.getElementById('maintenance').value);
+      const mgmtFee = parseFloat(document.getElementById('managementFee').value) / 100;
 
-      const totalInvestment = purchasePrice + repairCost;
-      const annualRent = rentalIncome * 12;
-      const netIncome = annualRent - annualExpenses;
-      const roi = ((netIncome / totalInvestment) * 100).toFixed(2);
+      const downPayment = price * downPct;
+      const loanAmount = price - downPayment;
+      const monthlyPayment = (loanAmount * rate) / (1 - Math.pow(1 + rate, -months));
+      const monthlyTax = tax / 12;
+      const monthlyInsurance = insurance / 12;
+      const managementFee = rent * mgmtFee;
 
-      let grade = '';
-      if (roi >= 15) grade = 'Amazing Deal';
-      else if (roi >= 10) grade = 'Good Deal';
-      else if (roi >= 5) grade = 'Mediocre';
-      else grade = 'Bad Investment';
+      const totalExpenses = monthlyPayment + monthlyTax + monthlyInsurance + maintenance + managementFee;
+      const effectiveIncome = rent;
+      const cashFlow = effectiveIncome - totalExpenses;
 
-      document.getElementById('result').innerHTML = `ROI: ${roi}%<br>AI Rating: <strong>${grade}</strong>`;
+      const capRate = ((rent * 12 - tax - insurance - maintenance * 12 - managementFee * 12) / price) * 100;
+      const cocReturn = ((cashFlow * 12) / downPayment) * 100;
+
+      document.getElementById('monthlyPayment').innerText = `$${monthlyPayment.toFixed(0)}`;
+      document.getElementById('cashFlow').innerText = `$${cashFlow.toFixed(0)} / mo`;
+      document.getElementById('capRate').innerText = `${capRate.toFixed(2)}%`;
+      document.getElementById('cashReturn').innerText = `${cocReturn.toFixed(2)}%`;
+
+      let advice = '';
+      if (cashFlow < 0) advice += `Negative monthly cash flow of $${cashFlow.toFixed(0)}.\n`;
+      if (capRate < 5) advice += `Cap rate below 5% — low yield for residential.\n`;
+      if (cocReturn < 0) advice += `Cash-on-cash return is negative. Consider higher rent or lower price.\n`;
+      if (!advice) advice = 'Excellent investment potential across all metrics.';
+
+      document.getElementById('aiRecommendation').innerHTML = `
+        <h4>Investment Recommendations</h4>
+        <p class="highlight">${cocReturn.toFixed(2)}% Cash on Cash Return</p>
+        <p>${advice.replace(/\n/g, '<br>')}</p>
+      `;
     }
   </script>
 </body>
