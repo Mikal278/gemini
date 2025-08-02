@@ -3,165 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1K Real Estate Calculators</title>
-  <link rel="stylesheet" href="styles/main.css" />
+  <title>1K Investment Calculator</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f5f6fa;
-      color: #333;
+      margin: 0;
+      padding: 0;
     }
 
-    .navbar {
-      background-color: #0a2540;
-      padding: 1rem 2rem;
-      color: white;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .hero {
+    header {
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
       text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .calculator-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
       padding: 2rem;
     }
 
-    .card {
-      background-color: white;
+    .calculator {
+      background-color: #fff;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
       border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
+    .calculator h2 {
       margin-top: 0;
-      color: #0a2540;
     }
 
-    .card button {
+    .calculator label {
+      display: block;
       margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .calculator input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .calculator button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
       background-color: #0a2540;
       color: white;
       border: none;
-      padding: 0.6rem 1.2rem;
       border-radius: 5px;
       cursor: pointer;
     }
 
-    .card button:hover {
+    .calculator button:hover {
       background-color: #113a5d;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #0a2540;
-      color: white;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
+    .results {
+      margin-top: 1.5rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">1K Investments</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#calculators">Calculators</a></li>
-        <li><a href="#articles">Articles</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Analyze Any Property in Seconds</h1>
-    <p>Powerful calculators enhanced with AI-driven insights</p>
+  <header>
+    <h1>1K Investment Calculator</h1>
+    <p>Evaluate your property with live ROI and AI-powered rating</p>
   </header>
 
-  <!-- Calculator Grid -->
-  <section class="calculator-grid" id="calculators">
-    <div class="card">
-      <h3>ROI Calculator</h3>
-      <p>Estimate return on investment for any deal.</p>
-      <button onclick="alert('Redirecting to ROI Calculator')">Calculate</button>
-    </div>
-    <div class="card">
-      <h3>Cash Flow Calculator</h3>
-      <p>See your monthly rental income after expenses.</p>
-      <button onclick="alert('Redirecting to Cash Flow Calculator')">Calculate</button>
-    </div>
-    <div class="card">
-      <h3>Cap Rate Calculator</h3>
-      <p>Quickly assess property profitability.</p>
-      <button onclick="alert('Redirecting to Cap Rate Calculator')">Calculate</button>
-    </div>
-    <div class="card">
-      <h3>Mortgage Estimator</h3>
-      <p>Calculate monthly loan payments.</p>
-      <button onclick="alert('Redirecting to Mortgage Estimator')">Calculate</button>
-    </div>
-    <div class="card">
-      <h3>AI Repair Estimator</h3>
-      <p>Upload a photo to get a smart estimate.</p>
-      <button onclick="alert('AI Repair Estimation Coming Soon')">Upload Photo</button>
-    </div>
-    <div class="card">
-      <h3>AI Property Grade</h3>
-      <p>Get a deal rating based on your numbers.</p>
-      <button onclick="alert('AI Rating System Coming Soon')">Rate Deal</button>
-    </div>
-  </section>
+  <div class="calculator">
+    <h2>Real Estate ROI Calculator</h2>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 1K Investments LLC. All rights reserved.</p>
-  </footer>
+    <label for="purchasePrice">Purchase Price ($)</label>
+    <input type="number" id="purchasePrice" />
+
+    <label for="repairCost">Repair Costs ($)</label>
+    <input type="number" id="repairCost" />
+
+    <label for="rentalIncome">Monthly Rent ($)</label>
+    <input type="number" id="rentalIncome" />
+
+    <label for="annualExpenses">Annual Expenses ($)</label>
+    <input type="number" id="annualExpenses" />
+
+    <button onclick="calculateROI()">Calculate ROI</button>
+
+    <div class="results" id="result"></div>
+  </div>
+
+  <script>
+    function calculateROI() {
+      const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+      const repairCost = parseFloat(document.getElementById('repairCost').value) || 0;
+      const rentalIncome = parseFloat(document.getElementById('rentalIncome').value) || 0;
+      const annualExpenses = parseFloat(document.getElementById('annualExpenses').value) || 0;
+
+      const totalInvestment = purchasePrice + repairCost;
+      const annualRent = rentalIncome * 12;
+      const netIncome = annualRent - annualExpenses;
+      const roi = ((netIncome / totalInvestment) * 100).toFixed(2);
+
+      let grade = '';
+      if (roi >= 15) grade = 'Amazing Deal';
+      else if (roi >= 10) grade = 'Good Deal';
+      else if (roi >= 5) grade = 'Mediocre';
+      else grade = 'Bad Investment';
+
+      document.getElementById('result').innerHTML = `ROI: ${roi}%<br>AI Rating: <strong>${grade}</strong>`;
+    }
+  </script>
 </body>
 </html>
