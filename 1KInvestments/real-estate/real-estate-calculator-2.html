@@ -12,14 +12,12 @@
       background: #f4f6fb;
       color: #333;
     }
-
     header {
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
       padding: 2rem;
       text-align: center;
     }
-
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -28,7 +26,6 @@
       gap: 1.5rem;
       justify-content: center;
     }
-
     .card {
       background: white;
       border-radius: 8px;
@@ -37,13 +34,11 @@
       flex: 1;
       min-width: 300px;
     }
-
     label {
       font-weight: 600;
       display: block;
       margin-top: 1rem;
     }
-
     input[type="number"], input[type="text"], select {
       width: 100%;
       padding: 0.5rem;
@@ -51,21 +46,12 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-
-    .slider-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
     .metrics {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-top: 2rem;
     }
-
     .metric {
       flex: 1;
       background: #f9f9fb;
@@ -74,12 +60,10 @@
       border-radius: 5px;
       min-width: 160px;
     }
-
     .metric h3 {
       margin: 0 0 0.5rem;
       font-size: 1.1rem;
     }
-
     .recommendations {
       margin-top: 2rem;
       background: #fff3f3;
@@ -87,7 +71,6 @@
       border-radius: 8px;
       border-left: 5px solid #cc0000;
     }
-
     .highlight {
       font-weight: bold;
       color: #cc0000;
@@ -97,53 +80,38 @@
 <body>
   <header>
     <h1>1K Investment Calculator</h1>
-    <p>Advanced Real Estate Analysis with AI Recommendations</p>
+    <p>Advanced Real Estate Analysis with AI-Powered Address Estimator</p>
   </header>
-
   <div class="container">
-    <!-- Inputs -->
     <div class="card">
       <h2>Investment Details</h2>
-
       <label>Property Address</label>
       <input type="text" id="address" placeholder="Enter property address">
       <button onclick="estimateFields()" style="margin-top:0.5rem;margin-bottom:1.5rem;padding:0.5rem 1rem;background:#888;color:#fff;border:none;border-radius:4px;cursor:pointer;">Estimate from Address</button>
-
       <label>Purchase Price ($)</label>
       <input type="number" id="price" value="300000">
-
       <label>Down Payment (%)</label>
       <input type="number" id="downPaymentPercent" value="20">
-
       <label>Interest Rate (%)</label>
       <input type="number" id="rate" value="6.5">
-
       <label>Loan Term (Years)</label>
       <select id="loanTerm">
         <option value="15">15</option>
         <option value="20">20</option>
         <option value="30" selected>30</option>
       </select>
-
       <label>Monthly Rent ($)</label>
       <input type="number" id="rent" value="2200">
-
       <label>Annual Property Tax ($)</label>
       <input type="number" id="tax" value="3000">
-
       <label>Annual Insurance ($)</label>
       <input type="number" id="insurance" value="1200">
-
       <label>Monthly Maintenance ($)</label>
       <input type="number" id="maintenance" value="150">
-
       <label>Management Fee (% of Rent)</label>
       <input type="number" id="managementFee" value="8">
-
       <button onclick="calculate()" style="margin-top:1.5rem;padding:0.8rem 1.5rem;background:#1e3c72;color:white;border:none;border-radius:5px;cursor:pointer;">Calculate</button>
     </div>
-
-    <!-- Output -->
     <div class="card">
       <h2>Investment Analysis Results</h2>
       <div class="metrics">
@@ -170,25 +138,41 @@
       </div>
     </div>
   </div>
-
   <script>
     function estimateFields() {
-      const address = document.getElementById('address').value;
+      const address = document.getElementById('address').value.trim();
       if (!address) {
         alert('Please enter a valid address');
         return;
       }
+      const addressEncoded = encodeURIComponent(address);
+      const apiUrl = `https://api.phila.gov/opa/v1.1/address/${addressEncoded}?format=json`;
 
-      // Placeholder logic: Replace with actual API or AI call
-      // Simulated values for demonstration
-      setTimeout(() => {
-        document.getElementById('price').value = 320000;
-        document.getElementById('rent').value = 2400;
-        document.getElementById('tax').value = 2800;
-        document.getElementById('insurance').value = 1100;
-        document.getElementById('maintenance').value = 160;
-        alert(`Estimates loaded for ${address}`);
-      }, 1000);
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.data && data.data.market_value) {
+            const estPrice = parseFloat(data.data.market_value);
+            const estRent = (estPrice * 0.0075 / 12).toFixed(0);
+            const estTax = (estPrice * 0.01399).toFixed(0);
+            const estInsurance = 1200;
+            const estMaintenance = 150;
+
+            document.getElementById('price').value = estPrice;
+            document.getElementById('rent').value = estRent;
+            document.getElementById('tax').value = estTax;
+            document.getElementById('insurance').value = estInsurance;
+            document.getElementById('maintenance').value = estMaintenance;
+
+            alert(`Estimates loaded from OPA for: ${data.data.street_address}`);
+          } else {
+            alert('Could not find property details for this address.');
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Error fetching data from OPA.');
+        });
     }
 
     function calculate() {
