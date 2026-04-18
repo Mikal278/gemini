@@ -1,0 +1,25 @@
+export const C = {
+  bg:       '#F8F7F4',
+  surface:  '#FFFFFF',
+  s2:       '#F3F1EC',
+  s3:       '#ECEAE4',
+  border:   '#E5E2DB',
+  accent:   '#0B3D2E',
+  accent2:  '#1A5C3F',
+  accentL:  '#E2F0E8',
+  gold:     '#A07424',
+  goldL:    '#FDF6E3',
+  text:     '#0D0D0D',
+  text2:    '#4A4745',
+  muted:    '#9B9894',
+  red:      '#B83B2E',
+  redL:     '#FDECEA',
+  green:    '#1A7340',
+  greenL:   '#E8F5EF',
+  yellow:   '#C07C1A',
+  yellowL:  '#FEF8E7',
+  white:    '#FFFFFF',
+  dark:     '#080F0A',
+};
+
+export const fmt = n => '$' + Math.round(n).toLocaleString('en-US');

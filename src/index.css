@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent:   #0B3D2E;
+    --accent-l: #E2F0E8;
+    --bg:       #F8F7F4;
+    --surface:  #FFFFFF;
+    --border:   #E5E2DB;
+    --text:     #0D0D0D;
+    --text2:    #4A4745;
+    --muted:    #9B9894;
+    --red:      #B83B2E;
+    --red-l:    #FDECEA;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body, #root {
+    height: 100%;
+    background-color: var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: var(--accent-l);
+    color: var(--accent);
+  }
+
+  input, textarea, select, button {
+    font-family: inherit;
+  }
+
+  /* Hide number spinners */
+  input[type=number] { -moz-appearance: textfield; }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D4D0C8; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #B8B4AC; }
+
+/* ── Buttons ── */
+.zayd-btn-primary {
+  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease !important;
+}
+.zayd-btn-primary:hover:not(:disabled) {
+  background-color: #083326 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 18px rgba(11, 61, 46, 0.32) !important;
+}
+.zayd-btn-primary:active:not(:disabled) {
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+}
+
+.zayd-btn-outline {
+  transition: background-color 0.15s ease, transform 0.12s ease !important;
+}
+.zayd-btn-outline:hover:not(:disabled) {
+  background-color: var(--accent-l) !important;
+  transform: translateY(-1px) !important;
+}
+.zayd-btn-outline:active:not(:disabled) {
+  transform: translateY(0) !important;
+}
+
+.zayd-btn-ghost {
+  transition: background-color 0.12s ease !important;
+}
+.zayd-btn-ghost:hover:not(:disabled) {
+  background-color: #EDEAE4 !important;
+}
+
+.zayd-btn-danger {
+  transition: background-color 0.15s ease, transform 0.12s ease !important;
+}
+.zayd-btn-danger:hover:not(:disabled) {
+  background-color: #9B2F24 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Inputs ── */
+.zayd-input {
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease !important;
+}
+.zayd-input:focus {
+  border-color: var(--accent) !important;
+  background-color: white !important;
+  box-shadow: 0 0 0 3px rgba(11, 61, 46, 0.1) !important;
+}
+
+/* ── Cards ── */
+.zayd-card {
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.zayd-card-hover:hover {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Sidebar nav items ── */
+.zayd-nav-item {
+  transition: background-color 0.12s ease, color 0.12s ease !important;
+}
+.zayd-nav-item:hover {
+  background-color: var(--accent-l) !important;
+  color: var(--accent) !important;
+}
+.zayd-nav-item:hover svg {
+  stroke: var(--accent) !important;
+}
+
+/* ── Assessment options ── */
+.zayd-option {
+  transition: border-color 0.12s ease, background-color 0.12s ease, transform 0.1s ease !important;
+}
+.zayd-option:hover {
+  border-color: var(--accent) !important;
+  background-color: #EEF8F2 !important;
+  transform: translateX(2px) !important;
+}
+
+/* ── Tab buttons ── */
+.zayd-tab {
+  transition: color 0.12s ease !important;
+}
+.zayd-tab:hover {
+  color: var(--accent) !important;
+}
+
+/* ── Table rows ── */
+.zayd-table-row {
+  transition: background-color 0.1s ease !important;
+}
+.zayd-table-row:hover {
+  background-color: #F8F7F4 !important;
+}
+
+/* ── Delete button ── */
+.zayd-delete-btn {
+  transition: color 0.12s ease, background-color 0.12s ease !important;
+  border-radius: 8px !important;
+  padding: 5px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.zayd-delete-btn:hover {
+  color: var(--red) !important;
+  background-color: var(--red-l) !important;
+}
+
+/* ── Sec btn ── */
+.zayd-sec-btn {
+  transition: opacity 0.12s ease, transform 0.12s ease !important;
+}
+.zayd-sec-btn:hover {
+  opacity: 0.82 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Close button ── */
+.zayd-close-btn {
+  transition: background-color 0.12s ease, color 0.12s ease !important;
+}
+.zayd-close-btn:hover {
+  background-color: #EDEAE4 !important;
+  color: var(--text) !important;
+}
+
+/* ── Dropdown items ── */
+.zayd-drop-item {
+  transition: background-color 0.1s ease !important;
+}
+.zayd-drop-item:hover {
+  background-color: #F2F0EB !important;
+}
+
+/* ── Animations ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.zayd-spinner {
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.zayd-modal-backdrop {
+  animation: fadeIn 0.18s ease;
+}
+.zayd-modal-panel {
+  animation: slideUp 0.22s ease;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hidden-mobile { display: none !important; }
+  .show-mobile   { display: flex !important; }
+  .main-content  { margin-left: 0 !important; padding-top: 57px; }
+  .grid-col-2    { grid-template-columns: 1fr !important; }
+  .grid-col-3    { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 769px) {
+  .show-mobile { display: none !important; }
+}
