@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Visuals by 1K — Professional photography and visual storytelling for brands that demand excellence.">
+  <meta name="description" content="Visuals by 1K — Professional photography and visual direction.">
   <link rel="shortcut icon" type="image/x-icon" href="./../images/1kworld.ico">
-  <title>Visuals by 1K — Professional Photography & Visual Direction</title>
+  <title>Visuals by 1K — Professional Photography</title>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=block');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=block');
 
-    /* ─── RESET & VARIABLES ─────────────────────────────────────────────── */
     * {
       margin: 0;
       padding: 0;
@@ -18,15 +17,12 @@
     }
 
     :root {
-      --bg: #F9F9F7;
-      --text: #111111;
-      --text-muted: #737373;
-      --text-secondary: #525252;
-      --border: #111111;
-      --divider: #E5E5E0;
-      --accent: #CC0000;
-      --neutral-100: #F5F5F5;
-      --neutral-200: #E5E5E5;
+      --black: #111111;
+      --white: #FFFFFF;
+      --off-white: #F9F9F7;
+      --grey: #E5E5E0;
+      --text: #1A1A1A;
+      --text-light: #666666;
     }
 
     html {
@@ -34,313 +30,182 @@
     }
 
     body {
-      font-family: 'Lora', Georgia, serif;
-      background-color: var(--bg);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
       color: var(--text);
       line-height: 1.6;
       font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.02' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-      background-size: 4px 4px;
     }
 
-    /* ─── TYPOGRAPHY ────────────────────────────────────────────────────── */
-    .font-serif { font-family: 'Playfair Display', serif; }
-    .font-body { font-family: 'Lora', serif; }
-    .font-sans { font-family: 'Inter', sans-serif; }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-family: 'Playfair Display', serif;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 3.5rem;
-      }
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    @media (min-width: 1024px) {
-      h2 {
-        font-size: 2.5rem;
-      }
-    }
-
-    h3 {
-      font-size: 1.125rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    h4 {
-      font-size: 0.875rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-family: 'Inter', sans-serif;
-    }
-
-    p {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    a {
-      color: var(--text);
-      text-decoration: none;
-      transition: all 200ms ease-out;
-    }
-
-    a:hover {
-      color: var(--accent);
-    }
-
-    /* ─── UTILITIES ──────────────────────────────────────────────────────── */
-    .sharp-corners {
-      border-radius: 0px !important;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding: 0 2rem;
-      }
-    }
-
-    /* ─── HEADER / NAVIGATION ───────────────────────────────────────────── */
+    /* ─── HEADER ────────────────────────────────────────────────────────── */
     header {
       position: sticky;
       top: 0;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      z-index: 40;
-      backdrop-filter: blur(10px);
-      background-color: rgba(249, 249, 247, 0.95);
+      background: var(--white);
+      border-bottom: 1px solid var(--grey);
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.95);
     }
 
-    .header-content {
-      max-width: 1280px;
+    .header-wrapper {
+      max-width: 1600px;
       margin: 0 auto;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--black);
     }
 
-    @media (min-width: 768px) {
-      .header-content {
-        padding: 1.5rem 2rem;
-      }
+    .logo-link img {
+      width: 32px;
+      height: 32px;
+      opacity: 0.8;
     }
 
-    .header-content img {
-      width: 40px;
-      height: 40px;
-      filter: grayscale(100%);
-      opacity: 0.9;
-    }
-
-    .header-content h1 {
-      font-size: 1.25rem;
-      margin-bottom: 0;
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    nav {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1rem 1rem;
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    @media (min-width: 768px) {
-      nav {
-        padding: 0 2rem 1rem;
-      }
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 2.5rem;
     }
 
     nav a {
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      font-size: 0.875rem;
       color: var(--text);
-      font-family: 'Inter', sans-serif;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid transparent;
-      transition: all 200ms ease-out;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 200ms ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     nav a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--text-light);
     }
 
-    /* ─── HERO SECTION ──────────────────────────────────────────────────── */
+    /* ─── HERO ──────────────────────────────────────────────────────────── */
     .hero {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 4rem 1rem;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+      padding: 4rem 2rem;
       text-align: center;
-      border-bottom: 2px solid var(--border);
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        padding: 6rem 2rem;
-      }
+    .hero-content {
+      max-width: 900px;
     }
 
-    .hero h2 {
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
-    }
-
-    @media (min-width: 1024px) {
-      .hero h2 {
-        font-size: 3.5rem;
-      }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--black);
     }
 
     .hero p {
-      max-width: 700px;
-      margin: 0 auto;
       font-size: 1.125rem;
-      color: var(--text-secondary);
-    }
-
-    /* ─── PORTFOLIO SECTION ─────────────────────────────────────────────── */
-    .portfolio-section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 4rem 1rem;
-      border-bottom: 2px solid var(--border);
-    }
-
-    @media (min-width: 768px) {
-      .portfolio-section {
-        padding: 6rem 2rem;
-      }
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      max-width: 600px;
-      margin: 0 auto;
-      color: var(--text-secondary);
-    }
-
-    /* ─── GALLERY GRID ──────────────────────────────────────────────────── */
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
+      color: var(--text-light);
+      line-height: 1.8;
       margin-bottom: 2rem;
     }
 
+    .hero-cta {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 200ms ease;
+      border: 1px solid var(--black);
+    }
+
+    .hero-cta:hover {
+      background: transparent;
+      color: var(--black);
+    }
+
+    /* ─── GALLERY ───────────────────────────────────────────────────────── */
+    .gallery-section {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-rows: 350px;
+      gap: 1px;
+      background: var(--grey);
+      margin: 0;
+    }
+
     @media (min-width: 768px) {
       .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 400px;
       }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1200px) {
       .gallery {
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-flow: dense;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 380px;
       }
     }
 
     .gallery-item {
       position: relative;
       overflow: hidden;
-      aspect-ratio: 1;
-      border: 1px solid var(--border);
-      border-left: none;
-      border-top: none;
-      background: var(--neutral-200);
+      background: var(--grey);
+      cursor: pointer;
       group: true;
     }
 
-    .gallery-item:nth-child(3n+1) {
-      border-left: 1px solid var(--border);
-    }
-
-    .gallery-item:nth-child(-n+3) {
-      border-top: 1px solid var(--border);
+    /* Vary gallery items for visual interest */
+    .gallery-item:nth-child(5n+2) {
+      grid-column: span 1;
+      grid-row: span 2;
     }
 
     @media (max-width: 767px) {
-      .gallery-item {
-        border-left: 1px solid var(--border);
-      }
-
-      .gallery-item:first-child {
-        border-top: 1px solid var(--border);
-      }
-
-      .gallery-item:not(:first-child) {
-        border-top: 1px solid var(--border);
+      .gallery-item:nth-child(5n+2) {
+        grid-column: span 1;
+        grid-row: span 1;
       }
     }
 
-    /* Featured/larger items */
-    @media (min-width: 1024px) {
-      .gallery-item:nth-child(2) {
-        grid-column: span 1;
-        grid-row: span 2;
-        aspect-ratio: auto;
-      }
+    .gallery-item:nth-child(5n+4) {
+      grid-column: span 2;
+    }
 
-      .gallery-item:nth-child(5) {
-        grid-column: span 2;
-        aspect-ratio: 2;
+    @media (max-width: 767px) {
+      .gallery-item:nth-child(5n+4) {
+        grid-column: span 1;
       }
     }
 
@@ -348,312 +213,268 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%);
-      transition: all 400ms ease-out;
+      filter: grayscale(0%);
+      transition: transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 400ms ease;
     }
 
     .gallery-item:hover img {
-      filter: grayscale(0%) sepia(8%);
-      transform: scale(1.02);
+      transform: scale(1.03);
+      filter: grayscale(8%);
     }
 
-    .overlay {
+    .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 100%);
       display: flex;
       align-items: flex-end;
-      padding: 1.5rem;
+      padding: 2rem;
       opacity: 0;
-      transition: opacity 300ms ease-out;
+      transition: opacity 300ms ease;
     }
 
-    .gallery-item:hover .overlay {
+    .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
 
-    .overlay p {
-      color: white;
-      font-size: 0.95rem;
+    .gallery-label {
+      color: var(--white);
+      font-size: 0.875rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-family: 'Inter', sans-serif;
-      margin-bottom: 0;
     }
 
     /* ─── SERVICES SECTION ──────────────────────────────────────────────── */
     .services-section {
-      max-width: 1280px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 4rem 1rem;
-      background: var(--neutral-100);
-      border-bottom: 2px solid var(--border);
+      padding: 6rem 2rem;
     }
 
-    @media (min-width: 768px) {
-      .services-section {
-        padding: 6rem 2rem;
-      }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0;
-      margin-top: 2rem;
+      gap: 2rem;
     }
 
     @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
       .services-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
     .service-card {
-      border: 1px solid var(--border);
-      border-left: none;
-      border-top: none;
-      padding: 2rem;
-      transition: all 200ms ease-out;
-      background: var(--bg);
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--grey);
+      background: var(--off-white);
+      transition: all 300ms ease;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .service-card:nth-child(3n+1) {
-      border-left: 1px solid var(--border);
-    }
-
-    .service-card:nth-child(-n+3) {
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 767px) {
-      .service-card {
-        border-left: 1px solid var(--border);
-      }
-
-      .service-card:first-child {
-        border-top: 1px solid var(--border);
-      }
-
-      .service-card:not(:first-child) {
-        border-top: 1px solid var(--border);
-      }
+    .service-card:hover {
+      border-color: var(--black);
+      background: var(--white);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      transform: translateY(-4px);
     }
 
     .service-card h3 {
-      margin-bottom: 0.75rem;
-      font-size: 1.125rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--black);
     }
 
     .service-card p {
+      color: var(--text-light);
+      line-height: 1.8;
       font-size: 0.95rem;
-      margin-bottom: 0;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 0;
-      background: var(--accent);
-      transition: height 200ms ease-out;
+      flex-grow: 1;
     }
 
     /* ─── PROCESS SECTION ───────────────────────────────────────────────── */
     .process-section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 4rem 1rem;
-      border-bottom: 2px solid var(--border);
+      background: var(--black);
+      color: var(--white);
+      padding: 6rem 2rem;
     }
 
-    @media (min-width: 768px) {
-      .process-section {
-        padding: 6rem 2rem;
-      }
+    .process-section .section-header h2 {
+      color: var(--white);
+    }
+
+    .process-section .section-header p {
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .process-grid {
+      max-width: 1400px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
-      margin-top: 2rem;
     }
 
     @media (min-width: 768px) {
       .process-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 0;
       }
     }
 
     .process-step {
       text-align: center;
-      padding: 1.5rem;
-      border: 1px solid var(--divider);
-      border-left: none;
-      border-top: none;
-      background: var(--bg);
-    }
-
-    @media (min-width: 768px) {
-      .process-step:nth-child(4n+1) {
-        border-left: 1px solid var(--divider);
-      }
-
-      .process-step:nth-child(-n+4) {
-        border-top: 1px solid var(--divider);
-      }
-    }
-
-    @media (max-width: 767px) {
-      .process-step {
-        border-left: 1px solid var(--divider);
-        border-top: 1px solid var(--divider);
-      }
     }
 
     .process-number {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--accent);
       font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--white);
+      opacity: 0.2;
       margin-bottom: 0.5rem;
     }
 
     .process-step h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
       margin-bottom: 0.75rem;
-      color: var(--text);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: 'Inter', sans-serif;
     }
 
     .process-step p {
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-
-    /* ─── BUTTONS ───────────────────────────────────────────────────────── */
-    .btn {
-      display: inline-block;
-      padding: 0.875rem 1.75rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: all 200ms ease-out;
-      border: 1px solid var(--text);
-      border-radius: 0;
-      cursor: pointer;
-      min-height: 44px;
-      min-width: 44px;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .btn-primary:hover {
-      background: var(--bg);
-      color: var(--text);
-      box-shadow: 2px 2px 0px 0px var(--text);
-    }
-
-    .btn-accent {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-
-    .btn-accent:hover {
-      background: var(--bg);
-      color: var(--accent);
-      box-shadow: 2px 2px 0px 0px var(--accent);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
     /* ─── CTA SECTION ───────────────────────────────────────────────────── */
-    .cta-section {
-      background: var(--text);
-      color: var(--bg);
-      padding: 4rem 1rem !important;
+    .cta-final {
+      background: var(--off-white);
+      padding: 5rem 2rem;
       text-align: center;
-      border: none !important;
-      margin: 0 !important;
     }
 
-    @media (min-width: 768px) {
-      .cta-section {
-        padding: 6rem 2rem !important;
-      }
+    .cta-final h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
     }
 
-    .cta-section h2 {
-      color: var(--bg);
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      color: rgba(249, 249, 247, 0.85);
+    .cta-final p {
+      color: var(--text-light);
+      font-size: 1.125rem;
       max-width: 600px;
       margin: 0 auto 2rem;
     }
 
-    /* ─── FOOTER ────────────────────────────────────────────────────────── */
-    footer {
-      background: var(--text);
-      color: rgba(249, 249, 247, 0.7);
-      border-top: 2px solid var(--border);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.85rem;
-      font-family: 'Inter', sans-serif;
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 200ms ease;
+      border: 2px solid var(--black);
     }
 
-    @media (min-width: 768px) {
-      footer {
-        padding: 3rem 2rem;
-      }
+    .cta-button:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.875rem;
     }
 
     footer p {
-      color: rgba(249, 249, 247, 0.5);
       margin-bottom: 0;
     }
 
-    /* ─── DIVIDER ───────────────────────────────────────────────────────── */
-    .divider {
-      text-align: center;
-      padding: 1.5rem 0;
-      font-size: 1.25rem;
-      letter-spacing: 0.5em;
-      color: var(--divider);
-      font-family: 'Playfair Display', serif;
+    /* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .header-wrapper {
+        padding: 1rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      nav a {
+        font-size: 0.75rem;
+      }
+
+      .hero {
+        min-height: 60vh;
+        padding: 2rem 1.5rem;
+      }
+
+      .services-section,
+      .process-section,
+      .cta-final {
+        padding: 4rem 1.5rem;
+      }
     }
 
-    /* ─── RESPONSIVE ────────────────────────────────────────────────────── */
-    @media (max-width: 767px) {
-      h1 {
-        font-size: 1.75rem;
-      }
+    /* ─── LOADING STATE (Optional) ───────────────────────────────────────── */
+    .loading {
+      background: linear-gradient(
+        90deg,
+        var(--grey) 25%,
+        rgba(229, 229, 224, 0.5) 50%,
+        var(--grey) 75%
+      );
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
 
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .gallery-item:nth-child(2) {
-        grid-column: span 1;
-        grid-row: span 1;
-        aspect-ratio: 1;
-      }
-
-      .gallery-item:nth-child(5) {
-        grid-column: span 1;
-        aspect-ratio: 1;
-      }
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
   </style>
 </head>
@@ -661,154 +482,161 @@
 
 <!-- Header -->
 <header>
-  <div class="header-content">
-    <a href="./../index.html">
-      <img src="./../images/1kworld.png" alt="1K Investments">
+  <div class="header-wrapper">
+    <a href="./../index.html" class="logo-link">
+      <img src="./../images/1kworld.png" alt="1K">
+      <span class="logo-text">Visuals by 1K</span>
     </a>
-    <h1>Visuals by 1K</h1>
+    <nav>
+      <ul>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<!-- Navigation -->
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <h2>Visual Direction for Disciplined Brands</h2>
-  <p>Photography, creative direction, and visual strategy. We don't create trends—we capture what makes your brand unmistakably yours.</p>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Photography That Tells Your Story</h1>
+    <p>Professional photography and visual direction for brands that demand excellence.</p>
+    <a href="#contact" class="hero-cta">Get Started</a>
+  </div>
 </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="portfolio-section">
-  <div class="section-header">
-    <h2>Selected Work</h2>
-    <p>A curated collection of commercial and editorial projects that showcase disciplined visual storytelling.</p>
-  </div>
-
+<!-- Gallery -->
+<section id="portfolio" class="gallery-section">
   <div class="gallery">
     <div class="gallery-item">
-      <img src="./../images/photo1.jpg" alt="Brand photography - commercial">
-      <div class="overlay">
-        <p>Commercial</p>
+      <img src="./../images/photo1.jpg" alt="Commercial Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Commercial</span>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="./../images/photo2.jpg" alt="Product photography">
-      <div class="overlay">
-        <p>Product</p>
+      <img src="./../images/photo2.jpg" alt="Product Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Product</span>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="./../images/photo3.jpg" alt="Editorial photography">
-      <div class="overlay">
-        <p>Editorial</p>
+      <img src="./../images/photo3.jpg" alt="Editorial Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Editorial</span>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="./../images/photo4.jpg" alt="Lifestyle photography">
-      <div class="overlay">
-        <p>Lifestyle</p>
+      <img src="./../images/photo4.jpg" alt="Lifestyle Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Lifestyle</span>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="./../images/photo5.jpg" alt="Brand identity photography">
-      <div class="overlay">
-        <p>Brand Identity</p>
+      <img src="./../images/photo5.jpg" alt="Brand Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Brand</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./../images/photo6.jpg" alt="Corporate Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Corporate</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./../images/photo7.jpg" alt="Architecture Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Architecture</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./../images/photo8.jpg" alt="Event Photography">
+      <div class="gallery-overlay">
+        <span class="gallery-label">Events</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
+<!-- Services -->
 <section id="services" class="services-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Our Services</h2>
-      <p>End-to-end visual solutions designed for brands that demand clarity and impact.</p>
+  <div class="section-header">
+    <h2>Services</h2>
+    <p>End-to-end visual solutions designed to elevate your brand.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Commercial Photography</h3>
+      <p>Brand imagery and lifestyle photography that captures the essence of your business. From concept to final delivery, we handle every detail with precision.</p>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Commercial Photography</h3>
-        <p>Brand imagery, lifestyle photography, and visual campaigns built on strategic direction and meticulous execution.</p>
-      </div>
+    <div class="service-card">
+      <h3>Product Photography</h3>
+      <p>High-quality product photography designed for e-commerce, catalogs, and marketing. Every angle, every light, perfectly executed.</p>
+    </div>
 
-      <div class="service-card">
-        <h3>Product Photography</h3>
-        <p>Clean, precise product documentation and e-commerce photography that showcases functionality and design.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Creative Direction</h3>
-        <p>Visual strategy, art direction, and concept development for cohesive brand storytelling across mediums.</p>
-      </div>
+    <div class="service-card">
+      <h3>Creative Direction</h3>
+      <p>Visual strategy and art direction for cohesive brand storytelling. We shape how the world sees your brand through intentional visual choices.</p>
     </div>
   </div>
 </section>
 
-<!-- Process Section -->
+<!-- Process -->
 <section id="process" class="process-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Our Process</h2>
-      <p>Disciplined methodology. Clear expectations. Measurable outcomes.</p>
+  <div class="section-header">
+    <h2>Our Process</h2>
+    <p>Disciplined methodology. Clear expectations. Exceptional results.</p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-number">01</div>
+      <h4>Discovery</h4>
+      <p>We understand your vision, audience, and objectives through detailed consultation.</p>
     </div>
 
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="process-number">01</div>
-        <h4>Discovery</h4>
-        <p>Understand your brand, audience, and visual objectives through strategic briefing.</p>
-      </div>
+    <div class="process-step">
+      <div class="process-number">02</div>
+      <h4>Planning</h4>
+      <p>Develop creative direction, shot lists, and visual concepts aligned with your goals.</p>
+    </div>
 
-      <div class="process-step">
-        <div class="process-number">02</div>
-        <h4>Planning</h4>
-        <p>Develop creative direction, shot lists, and visual concepts aligned with your goals.</p>
-      </div>
+    <div class="process-step">
+      <div class="process-number">03</div>
+      <h4>Production</h4>
+      <p>Professional execution with meticulous attention to composition, lighting, and detail.</p>
+    </div>
 
-      <div class="process-step">
-        <div class="process-number">03</div>
-        <h4>Execution</h4>
-        <p>Professional production with meticulous attention to composition, lighting, and detail.</p>
-      </div>
-
-      <div class="process-step">
-        <div class="process-number">04</div>
-        <h4>Delivery</h4>
-        <p>Fully edited, color-graded imagery delivered on schedule with comprehensive documentation.</p>
-      </div>
+    <div class="process-step">
+      <div class="process-number">04</div>
+      <h4>Delivery</h4>
+      <p>Fully edited, color-graded images delivered on time with complete documentation.</p>
     </div>
   </div>
 </section>
 
-<!-- Divider -->
-<div class="divider">✦ ✦ ✦</div>
-
-<!-- CTA Section -->
-<section id="contact" class="cta-section">
-  <div class="container">
-    <h2>Ready to Build Your Visual Story?</h2>
-    <p>Let's discuss how strategic photography and visual direction can strengthen your brand presence and market position.</p>
-    <a href="mailto:contact@visualsby1k.com" class="btn btn-primary" style="background: var(--bg); color: var(--text); border-color: var(--bg);">Get in Touch</a>
-  </div>
+<!-- CTA -->
+<section id="contact" class="cta-final">
+  <h2>Ready to Elevate Your Visual Brand?</h2>
+  <p>Let's discuss how professional photography can strengthen your market presence and connect with your audience.</p>
+  <a href="mailto:contact@visualsby1k.com" class="cta-button">Book a Consultation</a>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2024 Visuals by 1K. All rights reserved. | Professional Photography & Creative Direction</p>
+  <p>&copy; 2024 Visuals by 1K. All rights reserved. Professional Photography & Visual Direction</p>
 </footer>
 
 </body>
